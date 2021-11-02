@@ -1,0 +1,5 @@
+﻿  pch.cpp
+  dllmain.cpp
+D:\test\DataStructure\SmartPointer\Array.h(36): warning C4715: “Array<std::basic_string<char,std::char_traits<char>,std::allocator<char> >,10>::set”: 不是所有的控件路径都返回值
+    正在创建库 D:\test\DataStructure\Debug\SmartPointer.lib 和对象 D:\test\DataStructure\Debug\SmartPointer.exp
+  SmartPointer.vcxproj -> D:\test\DataStructure\Debug\SmartPointer.dll
