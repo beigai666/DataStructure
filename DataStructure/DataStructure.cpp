@@ -5,19 +5,21 @@
 #include <Windows.h>
 typedef int (*SmartPointer)();
 
+typedef void (*ExceptionTest)();
+
 int main()
 {
     HINSTANCE hDll;//DLL 句柄
-    SmartPointer smartPointer;//函数指针
-    hDll = LoadLibrary(L"SmartPointer.dll");//动态获取dll文件的路径
+    ExceptionTest smartPointer;//函数指针
+    hDll = LoadLibrary(L"Exception.dll");//动态获取dll文件的路径
     if (hDll != NULL)
     {
         printf("hDll=%p\n", hDll);
-        smartPointer = (SmartPointer)GetProcAddress(hDll, "SmartPointer");//根据函数名在dll文件中获取该函数的地址    
+        smartPointer = (ExceptionTest)GetProcAddress(hDll, "exceptionTest");//根据函数名在dll文件中获取该函数的地址    
         if (smartPointer != NULL)
         {
-            int result = smartPointer();
-            printf("result=%d\n", result);
+            smartPointer();
+            //printf("result=%d\n", result);
         }
         FreeLibrary(hDll);
     }

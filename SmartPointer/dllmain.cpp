@@ -86,6 +86,7 @@ void ArrayTest() {
 		heap->set(i, i);
 		std::cout << "heap[" << i << "]=" << (*heap)[i] << std::endl;
 	}
+	
 }
 
 extern "C" _declspec(dllexport)  int SmartPointer()
