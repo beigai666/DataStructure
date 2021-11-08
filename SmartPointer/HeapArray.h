@@ -1,12 +1,12 @@
 #pragma once
 template<typename T>
 class HeapArray {
-	int m_leng;
+	int m_length;
 	T* m_pointer;
 private:
 	HeapArray(int leng);
 	HeapArray(const HeapArray<T>& obj);
-	
+	int length() const;
 	bool construct();
 public:
 	static HeapArray<T>* NewInstance(int leng);
@@ -19,22 +19,29 @@ public:
 
 template<typename T>
 HeapArray<T>::HeapArray(int leng) {
-	m_leng = leng;
+	m_length = leng;
 	
+}
+
+template
+< typename T >
+int HeapArray<T>::length() const
+{
+	return m_length;
 }
 
 template<typename T>
 HeapArray<T>::HeapArray(const HeapArray<T>& obj) {
-	m_leng = obj.m_leng;
-	m_pointer = new T[m_leng];
-	for (int i = 0; i < m_leng; i++) {
+	m_length = obj.m_length;
+	m_pointer = new T[m_length];
+	for (int i = 0; i < m_length; i++) {
 		T[i] = obj.m_pointer[i];
 	}
 }
 
 template<typename T>
 bool HeapArray<T>::construct() {
-	m_pointer = new T[m_leng];
+	m_pointer = new T[m_length];
 	return m_pointer != NULL;
 }
 
@@ -55,17 +62,31 @@ HeapArray<T>* HeapArray<T>::NewInstance(int leng) {
 
 template <typename T>
 T& HeapArray<T>::operator[](int index) {
-	return m_pointer[index];
+	if ((0 <= index) && (index < length()))
+	{
+		return m_pointer[index];
+	}
+	else
+	{
+		throw out_of_range("T& HeapArray<T>::operator [] (int index)");
+	}
 }
 
 template <typename T>
 T HeapArray<T>::operator[](int index)const {
-	return m_pointer[index];
+	if ((0 <= index) && (index < length()))
+	{
+		return m_pointer[index];
+	}
+	else
+	{
+		throw out_of_range("T HeapArray<T>::operator [] (int index) const");
+	}
 }
 
 template <typename T>
 bool HeapArray<T>::get(int index,T& var) {
-	if (index < m_leng) {
+	if (index < m_length) {
 		var = m_pointer[index];
 		return true;
 	}
@@ -74,7 +95,7 @@ bool HeapArray<T>::get(int index,T& var) {
 
 template <typename T>
 bool HeapArray<T>::set(int index, T var) {
-	if (index < m_leng) {
+	if (index < m_length) {
 		m_pointer[index] = var;
 		return true;
 	}

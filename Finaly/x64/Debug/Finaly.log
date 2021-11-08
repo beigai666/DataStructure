@@ -1,14 +1,6 @@
 ﻿  pch.cpp
   Exception.cpp
-F:\DataStructure\Finaly\Exception\Exception.cpp(7,15): error C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details.
-F:\DataStructure\Finaly\Exception\Exception.cpp(10,4): error C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
-F:\DataStructure\Finaly\Exception\Exception.cpp(12,17): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-F:\DataStructure\Finaly\Exception\Exception.cpp(13,17): error C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-F:\DataStructure\Finaly\Exception\Exception.cpp(14,17): error C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-F:\DataStructure\Finaly\Exception\Exception.cpp(32,15): error C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details.
-F:\DataStructure\Finaly\Exception\Exception.cpp(33,16): error C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details.
-F:\DataStructure\Finaly\Exception\Exception.cpp(39,16): error C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details.
-F:\DataStructure\Finaly\Exception\Exception.cpp(40,17): error C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details.
   Finaly.cpp
   Object.cpp
   正在生成代码...
+  Finaly.vcxproj -> F:\DataStructure\x64\Debug\Finaly.lib

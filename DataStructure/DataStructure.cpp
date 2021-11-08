@@ -1,6 +1,6 @@
 ﻿// DataStructure.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
-
+#include <typeinfo>
 #include <iostream>
 #include <Windows.h>
 typedef int (*SmartPointer)();
@@ -11,6 +11,7 @@ int main()
 {
     HINSTANCE hDll;//DLL 句柄
     ExceptionTest smartPointer;//函数指针
+    
     hDll = LoadLibrary(L"Exception.dll");//动态获取dll文件的路径
     if (hDll != NULL)
     {
@@ -23,6 +24,10 @@ int main()
         }
         FreeLibrary(hDll);
     }
+    
+    int i = 0;
+    const type_info& tiv = typeid(i);
+    std::cout << tiv.name() << std::endl;
     std::cout << "Hello World!\n";
 }
 

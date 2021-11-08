@@ -28,6 +28,7 @@ extern "C" _declspec(dllexport)  void exceptionTest() {
     }
     catch (const FinlayLib::Exception& e)
     {
+
         cout << e.location() << endl;
     }
 }

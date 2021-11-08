@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SmartPointer", "SmartPointe
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Exception", "Exception\Exception.vcxproj", "{D594EEEE-15F6-4C7E-9F89-31E09A008D15}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Finaly", "Finaly\Finaly.vcxproj", "{7A0B6FBA-08C3-4A2B-9CE6-F68B80EC8E1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{D594EEEE-15F6-4C7E-9F89-31E09A008D15}.Release|x64.Build.0 = Release|x64
 		{D594EEEE-15F6-4C7E-9F89-31E09A008D15}.Release|x86.ActiveCfg = Release|Win32
 		{D594EEEE-15F6-4C7E-9F89-31E09A008D15}.Release|x86.Build.0 = Release|Win32
+		{7A0B6FBA-08C3-4A2B-9CE6-F68B80EC8E1E}.Debug|x64.ActiveCfg = Debug|x64
+		{7A0B6FBA-08C3-4A2B-9CE6-F68B80EC8E1E}.Debug|x64.Build.0 = Debug|x64
+		{7A0B6FBA-08C3-4A2B-9CE6-F68B80EC8E1E}.Debug|x86.ActiveCfg = Debug|Win32
+		{7A0B6FBA-08C3-4A2B-9CE6-F68B80EC8E1E}.Debug|x86.Build.0 = Debug|Win32
+		{7A0B6FBA-08C3-4A2B-9CE6-F68B80EC8E1E}.Release|x64.ActiveCfg = Release|x64
+		{7A0B6FBA-08C3-4A2B-9CE6-F68B80EC8E1E}.Release|x64.Build.0 = Release|x64
+		{7A0B6FBA-08C3-4A2B-9CE6-F68B80EC8E1E}.Release|x86.ActiveCfg = Release|Win32
+		{7A0B6FBA-08C3-4A2B-9CE6-F68B80EC8E1E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

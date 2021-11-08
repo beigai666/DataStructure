@@ -1,4 +1,8 @@
 #pragma once
+#include <stdexcept>
+
+using namespace std;
+
 template <class T, int N>
 class Array {
 	T array[N];
@@ -33,16 +37,31 @@ bool Array<T, N>::set(int index, T var) {
 		return false;
 	}
 	array[index] = var;
+	return true;
 }
 
 template <class T,int N>
 T& Array<T, N>::operator[](int index) {
-	return array[index];
+	if ((0 <= index) && (index < N))
+	{
+		return array[index];
+	}
+	else
+	{
+		throw out_of_range("T& Array<T, N>::operator[] (int index)");
+	}
 }
 
 template <typename T, int N>
 T Array<T, N>::operator[](int index)const {
-	return array[index];
+	if ((0 <= index) && (index < N))
+	{
+		return array[index];
+	}
+	else
+	{
+		throw out_of_range("T Array<T, N>::operator[] (int index) const");
+	}
 }
 
 template <class T,int N>
