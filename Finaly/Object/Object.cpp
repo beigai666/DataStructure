@@ -3,7 +3,7 @@
 
 namespace FinlayLib {
 
-	void* Object::operator new(size_t size)
+	void* Object::operator new(size_t size) throw()
 	{
 		return malloc(size);
 	}
@@ -13,7 +13,7 @@ namespace FinlayLib {
 		free(p);
 	}
 
-	void* Object::operator new[](size_t size)
+	void* Object::operator new[](size_t size) throw()
 	{
 		return malloc(size);
 	}

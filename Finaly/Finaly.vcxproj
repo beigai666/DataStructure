@@ -154,12 +154,19 @@
   <ItemGroup>
     <ClInclude Include="Array\Array.h" />
     <ClInclude Include="Array\HeapArray.h" />
+    <ClInclude Include="Exception\ArithmeticException.h" />
     <ClInclude Include="Exception\Exception.h" />
+    <ClInclude Include="Exception\IndexOutOfBoundsException.h" />
+    <ClInclude Include="Exception\InvalidParameterException.h" />
+    <ClInclude Include="Exception\NoEnoughMemoryException.h" />
+    <ClInclude Include="Exception\NullPointerException.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="Exception\InvalidOperationException.h" />
     <ClInclude Include="Object\Object.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="pointer\Counter.h" />
     <ClInclude Include="pointer\SharePtr.h" />
+    <ClInclude Include="pointer\SmartPointer.h" />
     <ClInclude Include="pointer\WeakPtr.h" />
   </ItemGroup>
   <ItemGroup>

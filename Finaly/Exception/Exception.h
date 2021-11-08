@@ -1,5 +1,7 @@
 #pragma once
 #include <Object.h>
+
+#define TGEOW_EXCEPTION(e,m)(throw e(m,__FILE__,__LINE__))
 namespace FinlayLib
 {
 	class Exception : public Object
@@ -16,8 +18,7 @@ namespace FinlayLib
 		Exception& operator=(const Exception& e);
 		virtual const char* message()const;
 		virtual const char* location()const;
-		//virtual ~Exception() = 0;
-		~Exception();
+		virtual ~Exception() = 0;
 	private:
 
 	};
