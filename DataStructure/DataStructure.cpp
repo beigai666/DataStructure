@@ -3,31 +3,12 @@
 #include <typeinfo>
 #include <iostream>
 #include <Windows.h>
-typedef int (*SmartPointer)();
-
-typedef void (*ExceptionTest)();
-
+#include "../Finaly/framework.h"
+//#pragma comment(lib,"F:\\DataStructure\\x64\\Debug\\Finaly.lib")
+#pragma comment(lib,"Finaly.lib")
 int main()
 {
-    HINSTANCE hDll;//DLL 句柄
-    ExceptionTest smartPointer;//函数指针
-    
-    hDll = LoadLibrary(L"Exception.dll");//动态获取dll文件的路径
-    if (hDll != NULL)
-    {
-        printf("hDll=%p\n", hDll);
-        smartPointer = (ExceptionTest)GetProcAddress(hDll, "exceptionTest");//根据函数名在dll文件中获取该函数的地址    
-        if (smartPointer != NULL)
-        {
-            smartPointer();
-            //printf("result=%d\n", result);
-        }
-        FreeLibrary(hDll);
-    }
-    
-    int i = 0;
-    const type_info& tiv = typeid(i);
-    std::cout << tiv.name() << std::endl;
+    fnFinaly();
     std::cout << "Hello World!\n";
 }
 
