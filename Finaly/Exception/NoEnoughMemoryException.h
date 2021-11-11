@@ -3,6 +3,7 @@
 namespace FinlayLib {
 	class NoEnoughMemoryException : public Exception
 	{
+	public:
 		NoEnoughMemoryException() :Exception(0) {}
 
 		NoEnoughMemoryException(const char* message) :Exception(message) {}

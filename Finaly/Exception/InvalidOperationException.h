@@ -3,6 +3,7 @@
 namespace FinlayLib{
 	class InvalidOperationException : public Exception 
 	{
+	public:
 		InvalidOperationException():Exception(0){}
 
 		InvalidOperationException(const char* message):Exception(message){}

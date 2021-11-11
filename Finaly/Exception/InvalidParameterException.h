@@ -3,6 +3,7 @@
 namespace FinlayLib {
 	class InvalidParameterException : public Exception
 	{
+	public:
 		InvalidParameterException() :Exception(0) {}
 
 		InvalidParameterException(const char* message) :Exception(message) {}

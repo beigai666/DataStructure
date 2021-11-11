@@ -163,6 +163,8 @@
     <ClInclude Include="Exception\NullPointerException.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Exception\InvalidOperationException.h" />
+    <ClInclude Include="List\SeqList.h" />
+    <ClInclude Include="List\StaticList.h" />
     <ClInclude Include="Object\Object.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="pointer\Counter.h" />
@@ -173,6 +175,7 @@
   <ItemGroup>
     <ClCompile Include="Exception\Exception.cpp" />
     <ClCompile Include="Finaly.cpp" />
+    <ClCompile Include="List\List.h" />
     <ClCompile Include="Object\Object.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

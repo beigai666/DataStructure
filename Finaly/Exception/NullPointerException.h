@@ -3,6 +3,7 @@
 namespace FinlayLib {
 	class NullPointerException : public Exception
 	{
+	public:
 		NullPointerException() :Exception(0) {}
 
 		NullPointerException(const char* message) :Exception(message) {}

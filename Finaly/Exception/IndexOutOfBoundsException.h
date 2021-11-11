@@ -3,6 +3,7 @@
 namespace FinlayLib {
 	class IndexOutOfBoundsException : public Exception
 	{
+	public:
 		IndexOutOfBoundsException() :Exception(0) {}
 
 		IndexOutOfBoundsException(const char* message) :Exception(message) {}

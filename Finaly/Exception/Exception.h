@@ -1,7 +1,7 @@
 #pragma once
 #include <Object.h>
 
-#define TGEOW_EXCEPTION(e,m)(throw e(m,__FILE__,__LINE__))
+#define THEOW_EXCEPTION(e,m)(throw e(m,__FILE__,__LINE__))
 namespace FinlayLib
 {
 	class Exception : public Object

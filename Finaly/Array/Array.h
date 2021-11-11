@@ -68,4 +68,9 @@ namespace FinlayLib {
 	Array<T, N>::~Array() {
 
 	}
+	template<class T, int N>
+	inline int Array<T, N>::leng()
+	{
+		return N;
+	}
 }

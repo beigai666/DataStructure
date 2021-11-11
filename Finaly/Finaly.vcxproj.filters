@@ -63,6 +63,12 @@
     <ClInclude Include="Exception\InvalidParameterException.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="List\SeqList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List\StaticList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Finaly.cpp">
@@ -75,6 +81,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Object\Object.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="List\List.h">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
