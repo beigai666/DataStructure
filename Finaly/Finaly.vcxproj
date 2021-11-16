@@ -154,7 +154,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Array\Array.h" />
+    <ClInclude Include="Array\DynamicArray.h" />
     <ClInclude Include="Array\HeapArray.h" />
+    <ClInclude Include="Array\StaticArray.h" />
     <ClInclude Include="Exception\ArithmeticException.h" />
     <ClInclude Include="Exception\Exception.h" />
     <ClInclude Include="Exception\IndexOutOfBoundsException.h" />
@@ -163,6 +165,7 @@
     <ClInclude Include="Exception\NullPointerException.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Exception\InvalidOperationException.h" />
+    <ClInclude Include="List\DynamicList.h" />
     <ClInclude Include="List\SeqList.h" />
     <ClInclude Include="List\StaticList.h" />
     <ClInclude Include="Object\Object.h" />

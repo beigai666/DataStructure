@@ -69,6 +69,15 @@
     <ClInclude Include="List\StaticList.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="List\DynamicList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Array\StaticArray.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Array\DynamicArray.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Finaly.cpp">

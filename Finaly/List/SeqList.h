@@ -15,7 +15,7 @@ namespace FinlayLib {
 			//判断i的范围，需要满足0 <= i && i <= m_length
 			bool ret = (0 <= i && i <= m_length);
 			//插入元素时需要满足m_length < capaity()
-			ret = ret & (m_length < capaity());
+			ret = ret & (m_length < capacity());
 			if (ret) {
 				for (int index = m_length-1; index >= i; index--)
 				{
@@ -26,6 +26,11 @@ namespace FinlayLib {
 			}
 			return ret;
 		}
+
+		virtual bool insert(const T& e) {
+			return insert(this->m_length, e);
+		}
+
 		virtual bool remove(int i) {
 			bool ret = (0 <= i && i < m_length);
 			if (ret) {
@@ -84,7 +89,7 @@ namespace FinlayLib {
 			return (const_cast<SeqList<T>&>(*this))[i];
 		}
 
-		virtual int capaity()const = 0;
+		virtual int capacity()const = 0;
 
 	private:
 

@@ -5,35 +5,38 @@
 #include "framework.h"
 #include <iostream>
 #include <List/StaticList.h>
-
+#include <List/DynamicList.h>
+#include <Array/DynamicArray.h>
 using namespace FinlayLib;
 
 // TODO: 这是一个库函数示例
 void fnFinaly()
 {
-	StaticList<int, 5> l;
-	for (int i = 0; i < l.capaity(); i++)
+	DynamicaArray<int> arr(5);
+
+	for (int i = 0; i < arr.length(); i++)
 	{
-		l.insert(0, i);
+		arr[i]=i*i;
+	}
+	int num = 0;
+	for (int i = 0; i < arr.length(); i++)
+	{
+		num += arr[i];
+		std::cout<< arr[i]<<std::endl;
+		arr[i] = num;
 	}
 
-	for (int i = 0; i < l.capaity(); i++)
+	for (int i = 0; i < arr.length(); i++)
 	{
-		std::cout<<l[i]<<std::endl;
+		std::cout << arr[i] << std::endl;
 	}
-	l[0] *= l[0];
-	for (int i = 0; i < l.capaity(); i++)
+	DynamicaArray<int> s2(10);
+	s2 = arr;
+	s2.resize(8);
+
+	for (int i = 0; i < s2.length(); i++)
 	{
-		std::cout << l[i] << std::endl;
-	}
-	try
-	{
-		l[5] = 10;
-	}
-	catch (Exception & e)
-	{
-		std::cout << e.location() << std::endl;
-		std::cout << e.message() << std::endl;
+		std::cout << s2[i] << std::endl;
 	}
 	std::cout << "fnFinaly" << std::endl;
 }

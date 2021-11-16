@@ -1,76 +1,74 @@
 #pragma once
-#include <stdexcept>
+#include <Object.h>
+#include <Exception/IndexOutOfBoundsException.h>
 namespace FinlayLib {
 	using namespace std;
 
-	template <class T, int N>
-	class Array {
-		T array[N];
+	template <class T>
+	class Array : public Object{
+	protected:
+		T* m_array;
 	public:
 		Array();
 		virtual ~Array();
-		int leng();
+		virtual int length()const =0;
 		T& operator [](int index);
 		T operator[](int index)const;
-		bool set(int index, T var);
-		bool get(int index, T& var);
+		virtual bool set(int index, T var);
+		virtual bool get(int index, T& var);
 	};
 
-	template <class T, int N>
-	Array<T, N>::Array() {
+	template <class T>
+	Array<T>::Array() {
 
 
 	}
 
-	template <class T, int N>
-	bool Array<T, N>::get(int index, T& var) {
-		if (index > N) {
-			return false;
+	template <class T>
+	bool Array<T>::get(int i, T& var) {
+		bool ret = ((0 <= i) && (i < length()));
+		if (ret) {
+			var = m_array[i];
 		}
-		var = array[index];
-		return true;
+		
+		return ret;
 	}
 
-	template <class T, int N>
-	bool Array<T, N>::set(int index, T var) {
-		if (index > N) {
-			return false;
+	template <class T>
+	bool Array<T>::set(int i, T var) {
+		bool ret = ((0 <= i) && (i < length()));
+		if (ret) {
+			m_array[i] = var;
 		}
-		array[index] = var;
-		return true;
+		return ret;
 	}
 
-	template <class T, int N>
-	T& Array<T, N>::operator[](int index) {
-		if ((0 <= index) && (index < N))
+	template <class T>
+	T& Array<T>::operator[](int i) {
+		if ((0 <= i) && (i < length()))
 		{
-			return array[index];
+			return m_array[i];
 		}
 		else
 		{
-			throw out_of_range("T& Array<T, N>::operator[] (int index)");
+			THEOW_EXCEPTION(IndexOutOfBoundsException, "Parameter i is invalid ...");
 		}
 	}
 
-	template <typename T, int N>
-	T Array<T, N>::operator[](int index)const {
-		if ((0 <= index) && (index < N))
+	template <typename T>
+	T Array<T>::operator[](int i)const {
+		if ((0 <= i) && (i < length()))
 		{
-			return array[index];
+			return m_array[i];
 		}
 		else
 		{
-			throw out_of_range("T Array<T, N>::operator[] (int index) const");
+			THEOW_EXCEPTION(IndexOutOfBoundsException, "Parameter i is invalid ...");
 		}
 	}
 
-	template <class T, int N>
-	Array<T, N>::~Array() {
+	template <class T>
+	Array<T>::~Array() {
 
-	}
-	template<class T, int N>
-	inline int Array<T, N>::leng()
-	{
-		return N;
 	}
 }

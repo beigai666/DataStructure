@@ -13,7 +13,7 @@ namespace FinlayLib {
 		~StaticList() {
 
 		}
-		int capaity()const {
+		int capacity()const {
 			return N;
 		}
 	private:
