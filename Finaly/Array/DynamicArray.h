@@ -2,7 +2,6 @@
 #include <Array/Array.h>
 #include <Exception/NoEnoughMemoryException.h>
 namespace FinlayLib {
-
 	template<typename T>
 	class DynamicaArray : public Array<T>
 	{
@@ -56,7 +55,7 @@ namespace FinlayLib {
 			if (this != &obj) {
 				updata(copy(obj.m_array, obj.m_length, obj.m_length), obj.m_length);
 			}
-
+			return *this;
 		}
 		int length()const {
 			return m_length;
