@@ -4,7 +4,9 @@
 using namespace std;
 namespace FinlayLib {
 	void Exception::init(const char* message, const char* file, int line) {
-		m_message = strdup(message);
+		if (message != NULL) {
+			m_message = (message ? strdup(message) : NULL);
+		}
 		if (file != NULL) {
 			char sl[16] = { 0 };
 			itoa(line, sl, 10);

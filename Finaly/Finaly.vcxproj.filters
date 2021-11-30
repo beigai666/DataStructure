@@ -33,7 +33,7 @@
     <ClInclude Include="pointer\Counter.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="pointer\SharePtr.h">
+    <ClInclude Include="pointer\SharePointer.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="pointer\WeakPtr.h">
@@ -76,6 +76,15 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Array\DynamicArray.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List\LinkList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List\StaticLinkList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="pointer\Pointer.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -43,8 +43,16 @@ namespace FinlayLib {
 			}
 		}
 	public:
-		DynamicaArray(int length) {
-			init(new T[length], length);
+		DynamicaArray(int length=0) {
+			if (length == 0) {
+				this->m_length = 0;
+				this->m_array = NULL;
+			}
+			else
+			{
+				init(new T[length], length);
+			}
+			
 		}
 
 		DynamicaArray(const DynamicaArray<T>& obj) {

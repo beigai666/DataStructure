@@ -1,61 +1,41 @@
 
 #ifndef _SMARTPOINTER_H_
 #define _SMARTPOINTER_H_
-#include <Object.h>
+#include "Pointer.h"
 
 namespace FinlayLib {
     template
         < typename T >
-        class SmartPointer : public Object
+        class SmartPointer : public Pointer<T>
     {
-        T* mp;
     public:
-        SmartPointer(T* p = NULL)
+        SmartPointer(T* p = NULL) : Pointer<T>(p)
         {
-            mp = p;
+            
         }
 
         SmartPointer(const SmartPointer<T>& obj)
         {
-            mp = obj.mp;
-            const_cast<SmartPointer<T>&>(obj).mp = NULL;
+            this->m_pointer = obj.m_pointer;
+            const_cast<SmartPointer<T>&>(obj).m_pointer = NULL;
         }
 
         SmartPointer<T>& operator = (const SmartPointer<T>& obj)
         {
             if (this != &obj)
             {
-                delete mp;
-                mp = obj.mp;
-                const_cast<SmartPointer<T>&>(obj).mp = NULL;
+                T* p = this->m_pointer;
+                this->m_pointer = obj.m_pointer;
+                const_cast<SmartPointer<T>&>(obj).m_pointer = NULL;
+                delete p;
             }
 
             return *this;
         }
 
-        T* operator -> ()
-        {
-            return mp;
-        }
-
-        T& operator * ()
-        {
-            return *mp;
-        }
-
-        bool isNull()
-        {
-            return (mp == NULL);
-        }
-
-        T* get()
-        {
-            return mp;
-        }
-
         ~SmartPointer()
         {
-            delete mp;
+            delete this->m_pointer;
         }
     };
 }

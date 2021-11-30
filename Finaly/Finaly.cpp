@@ -4,39 +4,43 @@
 #include "pch.h"
 #include "framework.h"
 #include <iostream>
-#include <List/StaticList.h>
-#include <List/DynamicList.h>
 #include <Array/DynamicArray.h>
+//#include "pointer/SmartPointer.h"
+#include "pointer/SharePointer.h"
 using namespace FinlayLib;
 
+class Test
+{
+public:
+	Test();
+	~Test();
+	int value;
+private:
+
+};
+
+Test::Test():value(0)
+{
+	cout << "Test::Test()" << endl;
+}
+
+Test::~Test()
+{
+	cout << "Test::~Test()" << endl;
+}
 // TODO: 这是一个库函数示例
 void fnFinaly()
 {
-	DynamicaArray<int> arr(5);
-
-	for (int i = 0; i < arr.length(); i++)
-	{
-		arr[i]=i*i;
-	}
-	int num = 0;
-	for (int i = 0; i < arr.length(); i++)
-	{
-		num += arr[i];
-		std::cout<< arr[i]<<std::endl;
-		arr[i] = num;
-	}
-
-	for (int i = 0; i < arr.length(); i++)
-	{
-		std::cout << arr[i] << std::endl;
-	}
-	DynamicaArray<int> s2(10);
-	s2 = arr;
-	s2.resize(8);
-
-	for (int i = 0; i < s2.length(); i++)
-	{
-		std::cout << s2[i] << std::endl;
-	}
+	SharePointer<Test> sp0 = new Test;
+	SharePointer<Test> sp1= sp0;
+	SharePointer<Test> sp2 = NULL;
+	sp2 = sp1;
+	sp2->value = 100;
+	std::cout << sp0->value << std::endl;
+	std::cout << sp1->value << std::endl;
+	std::cout << sp2->value << std::endl;
+	sp1.clear();
+	std::cout << (sp0 == sp1)<< std::endl;
+	std::cout << (sp0 != sp1) << std::endl;
 	std::cout << "fnFinaly" << std::endl;
 }

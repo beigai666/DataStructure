@@ -166,12 +166,15 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="Exception\InvalidOperationException.h" />
     <ClInclude Include="List\DynamicList.h" />
+    <ClInclude Include="List\LinkList.h" />
     <ClInclude Include="List\SeqList.h" />
+    <ClInclude Include="List\StaticLinkList.h" />
     <ClInclude Include="List\StaticList.h" />
     <ClInclude Include="Object\Object.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="pointer\Counter.h" />
-    <ClInclude Include="pointer\SharePtr.h" />
+    <ClInclude Include="pointer\Pointer.h" />
+    <ClInclude Include="pointer\SharePointer.h" />
     <ClInclude Include="pointer\SmartPointer.h" />
     <ClInclude Include="pointer\WeakPtr.h" />
   </ItemGroup>
