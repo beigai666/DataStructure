@@ -5,42 +5,44 @@
 #include "framework.h"
 #include <iostream>
 #include <Array/DynamicArray.h>
-//#include "pointer/SmartPointer.h"
-#include "pointer/SharePointer.h"
+#include "List/DualLinkList.h"
+#include "List/CircleList.h"
 using namespace FinlayLib;
+void josephus(int n, int s, int m) {
+	CircleList<int> cl;
+	for (int i = 1; i <= n; i++)
+	{
+		cl.insert(i);
+	}
+	cl.move(s - 1, m - 1);
 
-class Test
-{
-public:
-	Test();
-	~Test();
-	int value;
-private:
-
-};
-
-Test::Test():value(0)
-{
-	cout << "Test::Test()" << endl;
-}
-
-Test::~Test()
-{
-	cout << "Test::~Test()" << endl;
+	while (cl.length()>0)
+	{
+		cl.next();
+		cout << cl.current() << endl;
+		cl.remove(cl.find(cl.current()));
+	}
 }
 // TODO: 这是一个库函数示例
 void fnFinaly()
 {
-	SharePointer<Test> sp0 = new Test;
-	SharePointer<Test> sp1= sp0;
-	SharePointer<Test> sp2 = NULL;
-	sp2 = sp1;
-	sp2->value = 100;
-	std::cout << sp0->value << std::endl;
-	std::cout << sp1->value << std::endl;
-	std::cout << sp2->value << std::endl;
-	sp1.clear();
-	std::cout << (sp0 == sp1)<< std::endl;
-	std::cout << (sp0 != sp1) << std::endl;
-	std::cout << "fnFinaly" << std::endl;
+	DualLinkList<int> dl;
+
+	for (int i = 0; i < 5; i++)
+	{
+		dl.insert(0, i);
+		dl.insert(0, 5);
+
+	}
+	for (dl.move(0); !dl.end(); dl.next())
+	{
+		cout << dl.current() << endl;
+	}
+	//josephus(41, 1, 3);
+	cout << "begin" << endl;
+	for (dl.move(dl.length()-1); !dl.end(); dl.pre())
+	{
+		cout<< dl.current() <<endl;
+	}
+
 }

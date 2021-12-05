@@ -87,6 +87,12 @@
     <ClInclude Include="pointer\Pointer.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="List\CircleList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List\DualLinkList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Finaly.cpp">

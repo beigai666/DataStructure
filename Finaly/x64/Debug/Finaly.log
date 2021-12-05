@@ -1,2 +1,7 @@
-﻿  Finaly.cpp
+﻿  pch.cpp
+  Exception.cpp
+  Finaly.cpp
+  List.h
+  Object.cpp
+  正在生成代码...
   Finaly.vcxproj -> F:\DataStructure\x64\Debug\Finaly.lib
