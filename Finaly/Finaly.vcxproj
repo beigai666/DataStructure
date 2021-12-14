@@ -169,6 +169,7 @@
     <ClInclude Include="List\DualLinkList.h" />
     <ClInclude Include="List\DynamicList.h" />
     <ClInclude Include="List\LinkList.h" />
+    <ClInclude Include="List\LinuxList.h" />
     <ClInclude Include="List\SeqList.h" />
     <ClInclude Include="List\StaticLinkList.h" />
     <ClInclude Include="List\StaticList.h" />

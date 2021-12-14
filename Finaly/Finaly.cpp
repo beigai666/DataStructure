@@ -7,6 +7,7 @@
 #include <Array/DynamicArray.h>
 #include "List/DualLinkList.h"
 #include "List/CircleList.h"
+#include "List/LinuxList.h"
 using namespace FinlayLib;
 void josephus(int n, int s, int m) {
 	CircleList<int> cl;
