@@ -166,6 +166,7 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="Exception\InvalidOperationException.h" />
     <ClInclude Include="List\CircleList.h" />
+    <ClInclude Include="List\DualCircleList.h" />
     <ClInclude Include="List\DualLinkList.h" />
     <ClInclude Include="List\DynamicList.h" />
     <ClInclude Include="List\LinkList.h" />

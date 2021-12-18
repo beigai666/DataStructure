@@ -8,6 +8,7 @@
 #include "List/DualLinkList.h"
 #include "List/CircleList.h"
 #include "List/LinuxList.h"
+#include "List/DualCircleList.h"
 using namespace FinlayLib;
 void josephus(int n, int s, int m) {
 	CircleList<int> cl;
