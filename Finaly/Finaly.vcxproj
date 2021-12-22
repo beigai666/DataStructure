@@ -181,6 +181,13 @@
     <ClInclude Include="pointer\SharePointer.h" />
     <ClInclude Include="pointer\SmartPointer.h" />
     <ClInclude Include="pointer\WeakPtr.h" />
+    <ClInclude Include="Queue\LinkQueue.h" />
+    <ClInclude Include="Queue\Queue.h" />
+    <ClInclude Include="Queue\StaticQueue.h" />
+    <ClInclude Include="Stack\LinkStatck.h" />
+    <ClInclude Include="Stack\Stack.h" />
+    <ClInclude Include="Stack\StaticStack.h" />
+    <ClInclude Include="Stack\Stacktest.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Exception\Exception.cpp" />

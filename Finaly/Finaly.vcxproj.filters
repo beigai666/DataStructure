@@ -99,6 +99,27 @@
     <ClInclude Include="List\DualCircleList.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Stack\Stack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack\StaticStack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack\LinkStatck.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Queue\Queue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Queue\StaticQueue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack\Stacktest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Queue\LinkQueue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Finaly.cpp">
