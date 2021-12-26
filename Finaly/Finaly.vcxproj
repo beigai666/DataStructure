@@ -188,6 +188,7 @@
     <ClInclude Include="Stack\Stack.h" />
     <ClInclude Include="Stack\StaticStack.h" />
     <ClInclude Include="Stack\Stacktest.h" />
+    <ClInclude Include="String\String.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Exception\Exception.cpp" />
@@ -200,6 +201,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="String\String.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
