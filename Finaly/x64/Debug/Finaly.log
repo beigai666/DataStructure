@@ -1,14 +1,17 @@
 ﻿  pch.cpp
   Exception.cpp
   Finaly.cpp
+F:\DataStructure\Finaly\Finaly.cpp(11,21): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+F:\DataStructure\Finaly\Finaly.cpp(35,20): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+F:\DataStructure\Finaly\Finaly.cpp(36,20): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
   List.h
   Object.cpp
   String.cpp
-D:\DataStructure\Finaly\String\String.cpp(27,28): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
-D:\DataStructure\Finaly\String\String.cpp(95,42): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-D:\DataStructure\Finaly\String\String.cpp(126,29): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
-D:\DataStructure\Finaly\String\String.cpp(157,23): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-D:\DataStructure\Finaly\String\String.cpp(168,23): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-D:\DataStructure\Finaly\String\String.cpp(181,24): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+F:\DataStructure\Finaly\String\String.cpp(27,28): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+F:\DataStructure\Finaly\String\String.cpp(95,42): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+F:\DataStructure\Finaly\String\String.cpp(126,29): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+F:\DataStructure\Finaly\String\String.cpp(157,23): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+F:\DataStructure\Finaly\String\String.cpp(168,23): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+F:\DataStructure\Finaly\String\String.cpp(181,24): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
   正在生成代码...
-  Finaly.vcxproj -> D:\DataStructure\x64\Debug\Finaly.lib
+  Finaly.vcxproj -> F:\DataStructure\x64\Debug\Finaly.lib
