@@ -89,18 +89,8 @@ void test_2() {
 // TODO: 这是一个库函数示例
 void fnFinaly()
 {
-	/*
-	String s = "   abc   ";
-	if (s.trim().insert(0, "D.T.").endOf("abc") && s.startWith("D.T."))
-	{
-		cout <<"["<< s.str()<<"]" << endl;
-	}
+	String s = "ababax";
+	String s1 = s.sub(3, 10);
 	cout << s.str() << endl;
-	*/
-	int* pmt = make_pmt("ABCDABD");
-	for (int i = 0; i < strlen("ABCDABD"); i++) {
-		cout << i << " : " << pmt[i]<<endl;
-	}
-
-	cout << kmp("abcdcdcdcde", "cde") << endl;
+	cout << s1.str() << endl;
 }

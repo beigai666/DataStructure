@@ -1,2 +1,4 @@
 D:\DataStructure\x64\Debug\Finaly.pdb
 D:\DataStructure\Finaly\x64\Debug\Finaly.pdb
+F:\DataStructure\x64\Debug\Finaly.lib.lastcodeanalysissucceeded
+F:\DataStructure\Finaly\x64\Debug\NativeCodeAnalysis.read.1.tlog

@@ -1,0 +1,138 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.29.30136.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "commandLine": "D:\\vs2019\\IDE\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX86\\x64\\c1xx.dll -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x0012C1B0 -il C:\\Users\\jiankang\\AppData\\Local\\Temp\\_CL_1fe3f049ast -typedil -f Exception\\Exception.cpp -Ze -D_MSC_EXTENSIONS -Zp16 -pc \\:/ -D_MSC_VER=1929 -D_MSC_FULL_VER=192930136 -D_MSC_BUILD=0 -D_M_AMD64=100 -ZILP448 -D_M_X64=100 -D_WIN64 -D_WIN32 -GR -D_CPPRTTI -nologo -W 3 -diagnostics:column -D_GUARDOVERFLOW_CRT_ALLOCATORS=1 -Ot -DCODE_ANALYSIS -D_DEBUG -D_LIB -D_CRT_SECURE_NO_WARNINGS -D_CRT_NONSTDC_NO_DEPRECATE -D_UNICODE -DUNICODE -EHs -D_CPPUNWIND -EHc -D__MSVC_RUNTIME_CHECKS -RTCs -RTCu -MDd -D_DEBUG -D_MT -D_DLL -GS -D_M_FP_PRECISE -permissive- -Zc:wchar_t -Zc:forScope -Fox64\\Debug\\Exception.obj -FdF:\\DataStructure\\x64\\Debug\\Finaly.pdb -external:W 3 -Gd -analyze:projectdirectory F:\\DataStructure\\Finaly -analyze:rulesetdirectory ;D:\\vs2019\\IDE\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset D:\\vs2019\\IDE\\Team Tools\\Static Analysis Tools\\Rule Sets\\NativeRecommendedRules.ruleset -analyze:quiet -analyze:plugin D:\\vs2019\\IDE\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX86\\x86\\EspXEngine.dll -FC -errorreport:prompt -I F:\\DataStructure\\Finaly\\ -I F:\\DataStructure\\Finaly\\Object -I D:\\vs2019\\IDE\\VC\\Tools\\MSVC\\14.29.30133\\include -I D:\\vs2019\\IDE\\VC\\Tools\\MSVC\\14.29.30133\\atlmfc\\include -I D:\\vs2019\\IDE\\VC\\Auxiliary\\VS\\include -I D:\\Windows Kits\\10\\Include\\10.0.19041.0\\ucrt -I D:\\Windows Kits\\10\\Include\\10.0.19041.0\\um -I D:\\Windows Kits\\10\\Include\\10.0.19041.0\\shared -I D:\\Windows Kits\\10\\Include\\10.0.19041.0\\winrt -I D:\\Windows Kits\\10\\Include\\10.0.19041.0\\cppwinrt -I F:\\DataStructure\\Finaly\\Include\\um -external:I D:\\vs2019\\IDE\\VC\\Tools\\MSVC\\14.29.30133\\include -I D:\\vs2019\\IDE\\VC\\Tools\\MSVC\\14.29.30133\\include -external:I D:\\vs2019\\IDE\\VC\\Tools\\MSVC\\14.29.30133\\atlmfc\\include -I D:\\vs2019\\IDE\\VC\\Tools\\MSVC\\14.29.30133\\atlmfc\\include -external:I D:\\vs2019\\IDE\\VC\\Auxiliary\\VS\\include -I D:\\vs2019\\IDE\\VC\\Auxiliary\\VS\\include -external:I D:\\Windows Kits\\10\\Include\\10.0.19041.0\\ucrt -I D:\\Windows Kits\\10\\Include\\10.0.19041.0\\ucrt -external:I D:\\Windows Kits\\10\\Include\\10.0.19041.0\\um -I D:\\Windows Kits\\10\\Include\\10.0.19041.0\\um -external:I D:\\Windows Kits\\10\\Include\\10.0.19041.0\\shared -I D:\\Windows Kits\\10\\Include\\10.0.19041.0\\shared -external:I D:\\Windows Kits\\10\\Include\\10.0.19041.0\\winrt -I D:\\Windows Kits\\10\\Include\\10.0.19041.0\\winrt -external:I D:\\Windows Kits\\10\\Include\\10.0.19041.0\\cppwinrt -I D:\\Windows Kits\\10\\Include\\10.0.19041.0\\cppwinrt -external:I F:\\DataStructure\\Finaly\\Include\\um -I F:\\DataStructure\\Finaly\\Include\\um",
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///F:/DataStructure/Finaly/String/String.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "a37c312064abdb429c7374a759e53aac"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///f:/datastructure/finaly/string/string.h"
+          },
+          "hashes": {
+            "md5": "9964e98ce3bc913a67daa47b98ef1cc9"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///f:/datastructure/finaly/object/object.h"
+          },
+          "hashes": {
+            "md5": "995fe0b05fe6cd24b9072e74f69f4d4d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///f:/datastructure/finaly/exception/noenoughmemoryexception.h"
+          },
+          "hashes": {
+            "md5": "0fd412abd8e344a19c594d6b2467b97d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///f:/datastructure/finaly/exception/exception.h"
+          },
+          "hashes": {
+            "md5": "5a114180e58578295065bdb93af27d59"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///f:/datastructure/finaly/exception/indexoutofboundsexception.h"
+          },
+          "hashes": {
+            "md5": "658e9e942f3b1bc7c7ccb2583cd93d92"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///f:/datastructure/finaly/object/object.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "fb3eab5fddad490254ee858a5c47bf89"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///f:/datastructure/finaly/list/list.h"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "922f2822bbeb62acaf0b4c5f52afb805"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///F:/DataStructure/Finaly/Finaly.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "e48f9066a5dace339b935145b238573f"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///f:/datastructure/finaly/pch.h"
+          },
+          "hashes": {
+            "md5": "bc0074a6e0650e2fedfb6f341ddc2143"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///f:/datastructure/finaly/framework.h"
+          },
+          "hashes": {
+            "md5": "ff38925244b1281f00efd0766a272bde"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///f:/datastructure/finaly/exception/exception.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "92addccac891e5f5f1ffae790af581cd"
+          }
+        }
+      ]
+    }
+  ]
+}
