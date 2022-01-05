@@ -5,6 +5,8 @@
 #include "framework.h"
 #include <iostream>
 #include <String/String.h>
+#include <List/LinkList.h>
+#include "QueneSolution.h"
 using namespace std;
 using namespace FinlayLib;
 int* make_pmt(const char* p) {
@@ -86,11 +88,12 @@ void test_2() {
 	cout << "test_2() end ..." << endl;
 }
 
+
+
 // TODO: 这是一个库函数示例
 void fnFinaly()
 {
-	String s = "ababax";
-	String s1 = s.sub(3, 10);
-	cout << s.str() << endl;
-	cout << s1.str() << endl;
+	QueneSolution<8> qs;
+	qs.run();
+	return;
 }

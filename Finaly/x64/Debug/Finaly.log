@@ -1,9 +1,9 @@
 ﻿  pch.cpp
   Exception.cpp
   Finaly.cpp
-F:\DataStructure\Finaly\Finaly.cpp(11,21): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-F:\DataStructure\Finaly\Finaly.cpp(35,20): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-F:\DataStructure\Finaly\Finaly.cpp(36,20): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+F:\DataStructure\Finaly\Finaly.cpp(13,21): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+F:\DataStructure\Finaly\Finaly.cpp(37,20): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+F:\DataStructure\Finaly\Finaly.cpp(38,20): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
   List.h
   Object.cpp
   String.cpp
@@ -17,16 +17,5 @@ F:\DataStructure\Finaly\String\String.cpp(244,23): warning C4267: “初始化�
 F:\DataStructure\Finaly\String\String.cpp(255,23): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
 F:\DataStructure\Finaly\String\String.cpp(268,24): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
 F:\DataStructure\Finaly\String\String.cpp(341,46): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-  正在运行 C/C++ 代码分析...
   正在生成代码...
   Finaly.vcxproj -> F:\DataStructure\x64\Debug\Finaly.lib
-F:\DataStructure\Finaly\Finaly.cpp(26): warning C6386: 写入到“ret”时缓冲区溢出: 可写大小为“sizeof(int)*len”个字节，但可能写入了“8”个字节。
-F:\DataStructure\Finaly\String\String.cpp(24): warning C6386: 写入到“ret”时缓冲区溢出: 可写大小为“sizeof(int)*len”个字节，但可能写入了“8”个字节。
-F:\DataStructure\Finaly\String\String.cpp(164): warning C26451: 算术溢出: 使用 4 字节值上的运算符 + ，然后将结果转换到 8 字节值。在调用运算符 + 之前将值强制转换为宽类型可避免溢出(io.2)。
-F:\DataStructure\Finaly\String\String.cpp(256): warning C26451: 算术溢出: 使用 4 字节值上的运算符 - ，然后将结果转换到 8 字节值。在调用运算符 - 之前将值强制转换为宽类型可避免溢出(io.2)。
-F:\DataStructure\Finaly\String\String.cpp(269): warning C26451: 算术溢出: 使用 4 字节值上的运算符 + ，然后将结果转换到 8 字节值。在调用运算符 + 之前将值强制转换为宽类型可避免溢出(io.2)。
-F:\DataStructure\Finaly\String\String.cpp(269): warning C26451: 算术溢出: 使用 4 字节值上的运算符 + ，然后将结果转换到 8 字节值。在调用运算符 + 之前将值强制转换为宽类型可避免溢出(io.2)。
-F:\DataStructure\Finaly\String\String.cpp(273): warning C26451: 算术溢出: 使用 4 字节值上的运算符 - ，然后将结果转换到 8 字节值。在调用运算符 - 之前将值强制转换为宽类型可避免溢出(io.2)。
-F:\DataStructure\Finaly\String\String.cpp(354): warning C6387: “str”可能是“0”: 这不符合函数“strncpy”的规范。
-F:\DataStructure\Finaly\String\String.cpp(355): warning C6011: 取消对 NULL 指针“str”的引用。查看第 354 行以找出可能会发生此情况的前一位置
-F:\DataStructure\Finaly\String\String.cpp(353): warning C26451: 算术溢出: 使用 4 字节值上的运算符 + ，然后将结果转换到 8 字节值。在调用运算符 + 之前将值强制转换为宽类型可避免溢出(io.2)。
