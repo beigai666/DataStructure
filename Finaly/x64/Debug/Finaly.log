@@ -1,9 +1,7 @@
 ﻿  pch.cpp
   Exception.cpp
   Finaly.cpp
-F:\DataStructure\Finaly\Finaly.cpp(13,21): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-F:\DataStructure\Finaly\Finaly.cpp(37,20): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-F:\DataStructure\Finaly\Finaly.cpp(38,20): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+F:\DataStructure\Finaly\Finaly.cpp(95,13): warning C4101: “tree”: 未引用的局部变量
   List.h
   Object.cpp
   String.cpp

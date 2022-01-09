@@ -16,6 +16,10 @@ namespace FinlayLib {
 		T operator[](int index)const;
 		virtual bool set(int index, T var);
 		virtual bool get(int index, T& var);
+		T* array()const
+		{
+			return m_array;
+		}
 	};
 
 	template <class T>

@@ -185,11 +185,16 @@
     <ClInclude Include="Queue\LinkQueue.h" />
     <ClInclude Include="Queue\Queue.h" />
     <ClInclude Include="Queue\StaticQueue.h" />
+    <ClInclude Include="Sort\Sort.h" />
     <ClInclude Include="Stack\LinkStatck.h" />
     <ClInclude Include="Stack\Stack.h" />
     <ClInclude Include="Stack\StaticStack.h" />
     <ClInclude Include="Stack\Stacktest.h" />
     <ClInclude Include="String\String.h" />
+    <ClInclude Include="Tree\GTree.h" />
+    <ClInclude Include="Tree\GTreeNode.h" />
+    <ClInclude Include="Tree\Tree.h" />
+    <ClInclude Include="Tree\TreeNode.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Exception\Exception.cpp" />

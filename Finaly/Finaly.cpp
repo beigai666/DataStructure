@@ -1,99 +1,114 @@
 ﻿// Finaly.cpp : 定义静态库的函数。
 //
-
-#include "pch.h"
-#include "framework.h"
 #include <iostream>
-#include <String/String.h>
-#include <List/LinkList.h>
-#include "QueneSolution.h"
+#include "pch.h"
+#include "Array/StaticArray.h"
+#include "Sort/Sort.h"
+#include <Tree/Tree.h>
 using namespace std;
 using namespace FinlayLib;
-int* make_pmt(const char* p) {
-	int len = strlen(p);
-	int* ret = static_cast<int*>(malloc(sizeof(int) * len));
-	if (ret != NULL)
-	{
-		int ll = 0;
-		ret[0] = 0;
-		for (int i = 1; i < len; i++)
-		{
-			while ((ll>0)&&(p[ll]!=p[i]))
-			{
-				ll = ret[ll - 1];
-			}
-			if (p[ll] == p[i]) {
-				ll++;
-			}
-			ret[i] = ll;
-		}
-	}
-	return ret;
-}
 
-int kmp(const char* s, const char* p)
+struct Test : public Object
 {
-	int ret = -1;
-	int sl = strlen(s);
-	int pl = strlen(p);
-	int* pmt = make_pmt(p);
-	if ((pmt != NULL) && (0 < pl) && (pl <= sl)) {
-		for (int i = 0,j=0; i < sl; i++)
-		{
-			while ((j>0)&&(s[i]!=p[j]))
-			{
-				j = pmt[j - 1];
-			}
-			if (s[i] == p[j]) {
-				j++;
-			}
-			if (j == pl)
-			{
-				ret = i + 1 - pl;
-			}
-		}
-	}
-	free(pmt);
-	return ret;
-}
-
-void test_1() {
-	cout << "test_1()begin ..." << endl;
-	String s;
-	s = 'D';
-	cout << s.str() << endl;
-	cout << s.length() << endl;
-	cout << (s == "D") << endl;
-	cout << (s > "CCC") << endl;
-
-	s += " Finlay zhu neng feng";
-	cout << s.str() << endl;
-	cout << s.length() << endl;
-	cout << (s == "D Finlay zhu neng feng") << endl;
-	cout << (s > "CCC") << endl;
-	cout << "test_1() end ..." << endl;
-}
-
-void test_2() {
-	cout << "test_2()begin ..." << endl;
-	String a[] = { "E","D","C","B","A" };
-	String min = a[0];
-	for (int i = 0; i < 5; i++)
+	int id;
+	int data1[1000];
+	double data2[500];
+	bool operator <(const Test& obj)const
 	{
-		if (min > a[i]) {
-			min = a[i];
-		}
+		return id < obj.id;
 	}
-	cout << "min=" << min.str() << endl;
-	cout << "test_2() end ..." << endl;
-}
+	bool operator <=(const Test& obj)const
+	{
+		return id <= obj.id;
+	}
+	bool operator >(const Test& obj)const
+	{
+		return id > obj.id;
+	}
+	bool operator >=(const Test& obj)const
+	{
+		return id >= obj.id;
+	}
+};
+
+class TestProxy : public Object
+{
+protected:
+	Test* m_pTest;
+
+public:
 
 
+	Test& operator = (Test& test)
+	{
+		m_pTest = &test;
+		return test;
+	}
+
+	int id()
+	{
+		return m_pTest->id;
+	}
+
+	int* data1()
+	{
+		return m_pTest->data1;
+	}
+
+	double* data2()
+	{
+		return m_pTest->data2;
+	}
+
+	Test& test()const
+	{
+		return *m_pTest;
+	}
+
+	bool operator <(const TestProxy& obj)
+	{
+		return test() < obj.test();
+	}
+	bool operator <=(const TestProxy& obj)
+	{
+		return test() <= obj.test();
+	}
+	bool operator >(const TestProxy& obj)
+	{
+		return test() > obj.test();
+	}
+	bool operator >=(const TestProxy& obj)
+	{
+		return test() >= obj.test();
+	}
+private:
+
+};
+
+
+Test t[1000];
+TestProxy pt[1000];
 
 // TODO: 这是一个库函数示例
 void fnFinaly()
 {
-	QueneSolution<8> qs;
-	qs.run();
+	Tree<int> *tree;
+	clock_t begin = 0;
+	clock_t end = 0;
+	for (int i = 0; i < 1000; i++)
+	{
+		t[i].id = i;
+		pt[i] = t[i];
+	}
+	begin = clock();
+	Sort::Quick(pt,1000, false);
+	
+	for (int i = 0; i < 1000; i++)
+	{
+		cout << t[i].id <<" " << pt[i].id() << endl;
+	}
+	
+	end = clock();
+	cout << "Time: "<<end-begin << endl;
 	return;
 }
