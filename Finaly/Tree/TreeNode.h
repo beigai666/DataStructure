@@ -13,7 +13,9 @@ namespace FinlayLib {
 			parent = NULL;
 		}
 
-		virtual ~TreeNode() = 0;
+		virtual ~TreeNode() {
+
+		}
 	private:
 
 	};

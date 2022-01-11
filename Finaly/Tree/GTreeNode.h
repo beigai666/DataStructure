@@ -8,7 +8,13 @@ namespace FinlayLib {
 	{
 	public:
 		LinkList<GTreeNode<T>*> child;
+		GTreeNode() {
 
+		}
+		~GTreeNode()
+		{
+
+		}
 	private:
 
 	};

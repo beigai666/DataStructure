@@ -1,7 +1,6 @@
 ﻿  pch.cpp
   Exception.cpp
   Finaly.cpp
-F:\DataStructure\Finaly\Finaly.cpp(95,13): warning C4101: “tree”: 未引用的局部变量
   List.h
   Object.cpp
   String.cpp
