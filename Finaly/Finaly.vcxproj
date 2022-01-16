@@ -191,6 +191,8 @@
     <ClInclude Include="Stack\StaticStack.h" />
     <ClInclude Include="Stack\Stacktest.h" />
     <ClInclude Include="String\String.h" />
+    <ClInclude Include="Tree\BTree.h" />
+    <ClInclude Include="Tree\BTreeNode.h" />
     <ClInclude Include="Tree\GTree.h" />
     <ClInclude Include="Tree\GTreeNode.h" />
     <ClInclude Include="Tree\Tree.h" />

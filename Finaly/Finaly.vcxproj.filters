@@ -141,6 +141,12 @@
     <ClInclude Include="Tree\GTree.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Tree\BTreeNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Tree\BTree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Finaly.cpp">

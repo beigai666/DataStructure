@@ -9,8 +9,15 @@ namespace FinlayLib {
 	protected:
 		TreeNode<T>* m_root;
 
+		Tree(const Tree<T>&);
+
+		Tree<T>& operator= (const Tree<T>&);
 	public:
 		Tree() { m_root = NULL; };
+		virtual ~Tree()
+		{
+		
+		}
 		virtual bool insert(TreeNode<T>* node)=0;
 		virtual bool insert(const T& value,TreeNode<T>* parent) = 0;
 		virtual SharePointer< Tree<T>>remove(const T& value) = 0;
