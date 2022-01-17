@@ -14,40 +14,41 @@ using namespace FinlayLib;
 // TODO: 这是一个库函数示例
 void fnFinaly()
 {
+
 	BTree<int> bt;
-	BTreeNode<int> btn;
-	GTree<char> t;
-	GTreeNode<char>* node = NULL ;
-	t.insert('A', NULL);
-	node = t.find('A');
-	t.insert('B', node);
-	t.insert('C', node);
-	t.insert('D', node);
+	BTreeNode<int>* n=NULL;
+	bt.insert(1,NULL);
+	n = bt.find(1);
+	bt.insert(2, n);
+	bt.insert(3, n);
 
-	node = t.find('B');
-	t.insert('E', node);
-	t.insert('F', node);
+	n = bt.find(2);
+	bt.insert(4, n);
+	bt.insert(5, n);
 
-	node = t.find('E');
-	t.insert('K', node);
-	t.insert('L', node);
+	n = bt.find(4);
+	bt.insert(8, n);
+	bt.insert(9, n);
+	n = bt.find(5);
+	bt.insert(10, n);
 
-	node = t.find('C');
-	t.insert('G', node);
+	n = bt.find(3);
+	bt.insert(6, n);
+	bt.insert(7, n);
 
-	node = t.find('D');
-	t.insert('H', node);
-	t.insert('I', node);
-	t.insert('J', node);
+	n = bt.find(6);
+	bt.insert(11, n, LEFT);
 
-	node = t.find('H');
-	t.insert('M', node);
-	cout << "count=" << t.count() << endl;
-	cout << "height=" << t.height() << endl;
-	cout << "degree=" << t.degree() << endl;
-	for (t.begin(); ! t.end(); t.next())
+	int a[] = { 8,9,10,11,7 };
+	for (int i = 0; i < 5; i++)
 	{
-		cout<<t.current()<<endl;
+		BTreeNode<int>* node = bt.find(a[i]);
+		while (node)
+		{
+			cout << node->value << " ";
+			node = dynamic_cast<BTreeNode<int>*>( node->parent);
+		}
+		cout << endl;
 	}
 	return;
 }
