@@ -5,12 +5,12 @@
 namespace FinlayLib {
 
 	template <typename T>
-	class SharePointer : public Pointer<T>
+	class SharedPointer : public Pointer<T>
 	{
 	protected:
 		int* m_ref;
 
-		void assign(const SharePointer<T>& obj) {
+		void assign(const SharedPointer<T>& obj) {
 			this->m_ref = obj.m_ref;
 			this->m_pointer = obj.m_pointer;
 			if (this->m_ref) {
@@ -19,7 +19,7 @@ namespace FinlayLib {
 		}
 
 	public:
-		SharePointer(T* p = NULL): m_ref(NULL){
+		SharedPointer(T* p = NULL): m_ref(NULL){
 			if (p)
 			{
 				this->m_ref = static_cast<int*>(std::malloc(sizeof(int)));
@@ -29,18 +29,18 @@ namespace FinlayLib {
 				}
 				else
 				{
-					THEOW_EXCEPTION(NoEnoughMemoryException,"No memory to create SharedPointer object ...");
+					THROW_EXCEPTION(NoEnoughMemoryException,"No memory to create SharedPointer object ...");
 				}
 			}
 		}
-		~SharePointer() {
+		~SharedPointer() {
 			clear();
 		}
-		SharePointer(SharePointer<T>const& obj) : Pointer<T>(NULL){
+		SharedPointer(SharedPointer<T>const& obj) : Pointer<T>(NULL){
 			assign(obj);
 		}
 
-		SharePointer<T>& operator =(SharePointer<T>const& obj) {
+		SharedPointer<T>& operator =(SharedPointer<T>const& obj) {
 			if (this != &obj) {
 				clear();
 				assign(obj);
@@ -65,12 +65,12 @@ namespace FinlayLib {
 	};
 
 	template<typename T>
-	bool operator == (const SharePointer<T>& l, const SharePointer<T>& r) {
+	bool operator == (const SharedPointer<T>& l, const SharedPointer<T>& r) {
 		return (l.get() == r.get());
 	}
 
 	template<typename T>
-	bool operator != (const SharePointer<T>& l, const SharePointer<T>& r) {
+	bool operator != (const SharedPointer<T>& l, const SharedPointer<T>& r) {
 		return !(l == r);
 	}
 

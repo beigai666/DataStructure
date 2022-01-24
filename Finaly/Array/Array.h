@@ -55,7 +55,7 @@ namespace FinlayLib {
 		}
 		else
 		{
-			THEOW_EXCEPTION(IndexOutOfBoundsException, "Parameter i is invalid ...");
+			THROW_EXCEPTION(IndexOutOfBoundsException, "Parameter i is invalid ...");
 		}
 	}
 
@@ -67,7 +67,7 @@ namespace FinlayLib {
 		}
 		else
 		{
-			THEOW_EXCEPTION(IndexOutOfBoundsException, "Parameter i is invalid ...");
+			THROW_EXCEPTION(IndexOutOfBoundsException, "Parameter i is invalid ...");
 		}
 	}
 

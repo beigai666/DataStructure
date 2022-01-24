@@ -1,7 +1,7 @@
 #pragma once
 #include <Object.h>
 
-#define THEOW_EXCEPTION(e,m)(throw e(m,__FILE__,__LINE__))
+#define THROW_EXCEPTION(e,m)(throw e(m,__FILE__,__LINE__))
 namespace FinlayLib
 {
 	class Exception : public Object
@@ -24,4 +24,9 @@ namespace FinlayLib
 	};
 
 }
-
+#include "InvalidOperationException.h"
+#include "InvalidParameterException.h"
+#include "NoEnoughMemoryException.h"
+#include "ArithmeticException.h"
+#include "IndexOutOfBoundsException.h"
+#include "NoEnoughMemoryException.h"

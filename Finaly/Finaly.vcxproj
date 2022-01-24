@@ -165,6 +165,7 @@
     <ClInclude Include="Exception\NullPointerException.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Exception\InvalidOperationException.h" />
+    <ClInclude Include="Graph\MatrixGraph.h" />
     <ClInclude Include="List\CircleList.h" />
     <ClInclude Include="List\DualCircleList.h" />
     <ClInclude Include="List\DualLinkList.h" />
@@ -201,6 +202,7 @@
   <ItemGroup>
     <ClCompile Include="Exception\Exception.cpp" />
     <ClCompile Include="Finaly.cpp" />
+    <ClCompile Include="Graph\Graph.h" />
     <ClCompile Include="List\List.h" />
     <ClCompile Include="Object\Object.cpp" />
     <ClCompile Include="pch.cpp">

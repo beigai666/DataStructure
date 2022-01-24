@@ -83,7 +83,7 @@ namespace FinlayLib {
 			}
 			else
 			{
-				THEOW_EXCEPTION(IndexOutOfBoundsException, "Paranmeter i is invalid ...");
+				THROW_EXCEPTION(IndexOutOfBoundsException, "Paranmeter i is invalid ...");
 			}
 		}
 

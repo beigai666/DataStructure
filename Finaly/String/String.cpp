@@ -76,7 +76,7 @@ namespace FinlayLib {
 			m_length = strlen(m_str);
 		}
 		else {
-			THEOW_EXCEPTION(NoEnoughMemoryException, "No memory to create String object ...");
+			THROW_EXCEPTION(NoEnoughMemoryException, "No memory to create String object ...");
 		}
 	}
 	bool  String::equal(const char* l, const char* r, int len)const {
@@ -171,7 +171,7 @@ namespace FinlayLib {
 		}
 		else
 		{
-			THEOW_EXCEPTION(NoEnoughMemoryException, "No memory to add String values ...");
+			THROW_EXCEPTION(NoEnoughMemoryException, "No memory to add String values ...");
 		}
 		return ret;
 	}
@@ -214,7 +214,7 @@ namespace FinlayLib {
 			}
 			else
 			{
-				THEOW_EXCEPTION(NoEnoughMemoryException, "No memory to assign new String value ...");
+				THROW_EXCEPTION(NoEnoughMemoryException, "No memory to assign new String value ...");
 			}
 		}
 		return *this;
@@ -231,7 +231,7 @@ namespace FinlayLib {
 		}
 		else
 		{
-			THEOW_EXCEPTION(IndexOutOfBoundsException, "Parameter i is invalid");
+			THROW_EXCEPTION(IndexOutOfBoundsException, "Parameter i is invalid");
 		}
 	}
 	char String::operator[] (int i)const {
@@ -278,13 +278,13 @@ namespace FinlayLib {
 				}
 				else
 				{
-					THEOW_EXCEPTION(NoEnoughMemoryException, "No memory to insert string value ...");
+					THROW_EXCEPTION(NoEnoughMemoryException, "No memory to insert string value ...");
 				}
 			}
 		}
 		else
 		{
-			THEOW_EXCEPTION(IndexOutOfBoundsException, "Parameter i is invalid");
+			THROW_EXCEPTION(IndexOutOfBoundsException, "Parameter i is invalid");
 		}
 		return *this;
 	}
@@ -357,7 +357,7 @@ namespace FinlayLib {
 		}
 		else
 		{
-			THEOW_EXCEPTION(IndexOutOfBoundsException, "Parameter i is invalid ...");
+			THROW_EXCEPTION(IndexOutOfBoundsException, "Parameter i is invalid ...");
 		}
 		return ret;
 	}

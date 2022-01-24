@@ -28,7 +28,7 @@ namespace FinlayLib {
 			 }
 			 else
 			 {
-				 THEOW_EXCEPTION(InvalidOperationException, "No element in current stack ...");
+				 THROW_EXCEPTION(InvalidOperationException, "No element in current stack ...");
 			 }
 		 }
 
@@ -40,7 +40,7 @@ namespace FinlayLib {
 			 }
 			 else
 			 {
-				 THEOW_EXCEPTION(InvalidOperationException, "No element in current stack ...");
+				 THROW_EXCEPTION(InvalidOperationException, "No element in current stack ...");
 			 }
 		 }
 		 void clear()

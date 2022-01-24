@@ -30,7 +30,7 @@ namespace FinlayLib {
 				m_length++;
 			}
 			else {
-				THEOW_EXCEPTION(InvalidOperationException, "No space in current queue ...");
+				THROW_EXCEPTION(InvalidOperationException, "No space in current queue ...");
 			}
 		}
 		virtual void remove() {
@@ -39,7 +39,7 @@ namespace FinlayLib {
 				m_length--;
 			}
 			else {
-				THEOW_EXCEPTION(InvalidOperationException, "No element in current queue ...");
+				THROW_EXCEPTION(InvalidOperationException, "No element in current queue ...");
 			}
 		}
 		virtual T front()const {
@@ -47,7 +47,7 @@ namespace FinlayLib {
 				return m_space[m_front];
 			}
 			else {
-				THEOW_EXCEPTION(InvalidOperationException, "No element in current queue ...");
+				THROW_EXCEPTION(InvalidOperationException, "No element in current queue ...");
 			}
 		}
 		virtual void clear() {

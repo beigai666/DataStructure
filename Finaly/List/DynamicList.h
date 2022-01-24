@@ -18,7 +18,7 @@ namespace FinlayLib {
 			}
 			else
 			{
-				THEOW_EXCEPTION(NoEnoughMemoryException, "Np memory to create DynamicList object ...");
+				THROW_EXCEPTION(NoEnoughMemoryException, "Np memory to create DynamicList object ...");
 			}
 		}
 		~DynamicList() {
@@ -46,7 +46,7 @@ namespace FinlayLib {
 				}
 				else
 				{
-					THEOW_EXCEPTION(NoEnoughMemoryException, "No memory to resize DynamicList object .");
+					THROW_EXCEPTION(NoEnoughMemoryException, "No memory to resize DynamicList object .");
 				}
 			}
 		}

@@ -66,7 +66,6 @@ namespace FinlayLib {
 				{
 					free(node->child.current());
 				}
-				//std::cout <<"free: " << node->value << endl;
 				if (node->flag()) {
 					delete node;
 				}
@@ -78,7 +77,7 @@ namespace FinlayLib {
 			ret = new GTree<T>();
 			if (ret == NULL)
 			{
-				THEOW_EXCEPTION(NoEnoughMemoryException, "No memory to create new tree ...");
+				THROW_EXCEPTION(NoEnoughMemoryException, "No memory to create new tree ...");
 			}
 			else
 			{
@@ -177,13 +176,13 @@ namespace FinlayLib {
 					}
 					else
 					{
-						THEOW_EXCEPTION(InvalidParameterException, "Invalid parent tree node ...");
+						THROW_EXCEPTION(InvalidParameterException, "Invalid parent tree node ...");
 					}
 				}
 			}
 			else
 			{
-				THEOW_EXCEPTION(InvalidParameterException, "Parameter node cannot be NULL ...");
+				THROW_EXCEPTION(InvalidParameterException, "Parameter node cannot be NULL ...");
 			}
 			
 			return ret;
@@ -199,17 +198,17 @@ namespace FinlayLib {
 			}
 			else
 			{
-				THEOW_EXCEPTION(NoEnoughMemoryException, "No memory to create new tree node ...");
+				THROW_EXCEPTION(NoEnoughMemoryException, "No memory to create new tree node ...");
 			}
 			return ret;
 		}
-		virtual SharePointer< Tree<T>>remove(const T& value)
+		virtual SharedPointer< Tree<T>>remove(const T& value)
 		{
 			GTree<T>* ret = NULL;
 			GTreeNode<T>* node = find(value);
 			if (node == NULL)
 			{
-				THEOW_EXCEPTION(InvalidParameterException, "Can not find node via parameter value ...");
+				THROW_EXCEPTION(InvalidParameterException, "Can not find node via parameter value ...");
 			}
 			else
 			{
@@ -218,12 +217,12 @@ namespace FinlayLib {
 			}
 			return ret;
 		}
-		virtual SharePointer< Tree<T>>remove(TreeNode<T>* node) {
+		virtual SharedPointer< Tree<T>>remove(TreeNode<T>* node) {
 			GTree<T>* ret = NULL;
 			node = find(node);
 			if (node == NULL)
 			{
-				THEOW_EXCEPTION(InvalidParameterException, "Parameter node is invalid ...");
+				THROW_EXCEPTION(InvalidParameterException, "Parameter node is invalid ...");
 			}
 			else
 			{
@@ -298,7 +297,7 @@ namespace FinlayLib {
 			}
 			else
 			{
-				THEOW_EXCEPTION(InvalidOperationException, "No value at current position ...");
+				THROW_EXCEPTION(InvalidOperationException, "No value at current position ...");
 			}
 		}
 	private:

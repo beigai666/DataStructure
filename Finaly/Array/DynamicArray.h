@@ -3,7 +3,7 @@
 #include <Exception/NoEnoughMemoryException.h>
 namespace FinlayLib {
 	template<typename T>
-	class DynamicaArray : public Array<T>
+	class DynamicArray : public Array<T>
 	{
 		int m_length;
 	protected:
@@ -28,7 +28,7 @@ namespace FinlayLib {
 			}
 			else
 			{
-				THEOW_EXCEPTION(NoEnoughMemoryException, "No memory to update DynamicaArray object ...");
+				THROW_EXCEPTION(NoEnoughMemoryException, "No memory to update DynamicaArray object ...");
 			}
 		}
 
@@ -39,11 +39,11 @@ namespace FinlayLib {
 			}
 			else
 			{
-				THEOW_EXCEPTION(NoEnoughMemoryException, "No memory to create DynamicaArray object ...");
+				THROW_EXCEPTION(NoEnoughMemoryException, "No memory to create DynamicaArray object ...");
 			}
 		}
 	public:
-		DynamicaArray(int length=0) {
+		DynamicArray(int length=0) {
 			if (length == 0) {
 				this->m_length = 0;
 				this->m_array = NULL;
@@ -55,11 +55,11 @@ namespace FinlayLib {
 			
 		}
 
-		DynamicaArray(const DynamicaArray<T>& obj) {
+		DynamicArray(const DynamicArray<T>& obj) {
 			init(copy(obj.m_array, obj.m_length, obj.m_length), obj.m_length);
 		}
 
-		DynamicaArray<T>& operator = (const DynamicaArray<T>& obj) {
+		DynamicArray<T>& operator = (const DynamicArray<T>& obj) {
 			if (this != &obj) {
 				updata(copy(obj.m_array, obj.m_length, obj.m_length), obj.m_length);
 			}
@@ -75,7 +75,7 @@ namespace FinlayLib {
 			}
 		}
 
-		~DynamicaArray() {
+		~DynamicArray() {
 			delete[] this->m_array;
 		}
 

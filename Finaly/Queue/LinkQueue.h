@@ -32,7 +32,7 @@ namespace FinlayLib {
 			}
 			else
 			{
-				THEOW_EXCEPTION(InvalidOperationException, "No memory to add new element ...");
+				THROW_EXCEPTION(InvalidOperationException, "No memory to add new element ...");
 			}
 		}
 		virtual void remove() {
@@ -43,7 +43,7 @@ namespace FinlayLib {
 				delete list_entry(toDel, Node, head);
 			}
 			else {
-				THEOW_EXCEPTION(InvalidOperationException, "No element in current queue ...");
+				THROW_EXCEPTION(InvalidOperationException, "No element in current queue ...");
 			}
 		}
 		virtual T front()const {
@@ -51,7 +51,7 @@ namespace FinlayLib {
 				return list_entry(m_header.next,Node,head)->value;
 			}
 			else {
-				THEOW_EXCEPTION(InvalidOperationException, "No element in current queue ...");
+				THROW_EXCEPTION(InvalidOperationException, "No element in current queue ...");
 			}
 		}
 		virtual void clear() {

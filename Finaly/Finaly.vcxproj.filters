@@ -147,6 +147,9 @@
     <ClInclude Include="Tree\BTree.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Graph\MatrixGraph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Finaly.cpp">
@@ -165,6 +168,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="String\String.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Graph\Graph.h">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

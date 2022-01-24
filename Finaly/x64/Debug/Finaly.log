@@ -1,6 +1,7 @@
 ﻿  pch.cpp
   Exception.cpp
   Finaly.cpp
+  Graph.h
   List.h
   Object.cpp
   String.cpp

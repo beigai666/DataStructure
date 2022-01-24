@@ -62,7 +62,7 @@ namespace FinlayLib {
 				}
 				else
 				{
-					THEOW_EXCEPTION(NoEnoughMemoryException, "No memory to insert new element ...");
+					THROW_EXCEPTION(NoEnoughMemoryException, "No memory to insert new element ...");
 				}
 			}
 			return ret;
@@ -101,7 +101,7 @@ namespace FinlayLib {
 			}
 			else
 			{
-				THEOW_EXCEPTION(IndexOutOfBoundsException, "Invalid parameter i to get element ...");
+				THROW_EXCEPTION(IndexOutOfBoundsException, "Invalid parameter i to get element ...");
 			}
 			return ret;
 		}
@@ -164,7 +164,7 @@ namespace FinlayLib {
 			}
 			else
 			{
-				THEOW_EXCEPTION(InvalidOperationException, "no value at current position ...");
+				THROW_EXCEPTION(InvalidOperationException, "no value at current position ...");
 			}
 		}
 

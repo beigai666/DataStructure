@@ -3,10 +3,7 @@
 #include <Windows.h>
 #include <iostream>
 #include "pch.h"
-#include "Array/StaticArray.h"
-#include "Sort/Sort.h"
-#include <Tree/GTree.h>
-#include <Tree/BTree.h>
+#include "Graph/MatrixGraph.h"
 using namespace std;
 using namespace FinlayLib;
 
@@ -14,41 +11,38 @@ using namespace FinlayLib;
 // TODO: 这是一个库函数示例
 void fnFinaly()
 {
-
-	BTree<int> bt;
-	BTreeNode<int>* n=NULL;
-	bt.insert(1,NULL);
-	n = bt.find(1);
-	bt.insert(2, n);
-	bt.insert(3, n);
-
-	n = bt.find(2);
-	bt.insert(4, n);
-	bt.insert(5, n);
-
-	n = bt.find(4);
-	bt.insert(8, n);
-	bt.insert(9, n);
-	n = bt.find(5);
-	bt.insert(10, n);
-
-	n = bt.find(3);
-	bt.insert(6, n);
-	bt.insert(7, n);
-
-	n = bt.find(6);
-	bt.insert(11, n, LEFT);
-
-	int a[] = { 8,9,10,11,7 };
-	for (int i = 0; i < 5; i++)
+	try
 	{
-		BTreeNode<int>* node = bt.find(a[i]);
-		while (node)
+		MatrixGraph<3, int, int>g;
+		g.setEdge(0, 1, 1);
+		g.setEdge(1, 0, 2);
+		g.setEdge(1, 2, 3);
+		cout << "vCount: " << g.vCount() << endl;
+		cout << "eCount: " << g.eCount() << endl;
+		cout << "ID(1): " << g.ID(1) << endl;
+		cout << "OD(1): " << g.OD(1) << endl;
+		cout << "TD(1): " << g.TD(1) << endl;
+		cout << "W(0,1):" << g.getEdge(0, 1) << endl;
+		cout << "W(1,0):" << g.getEdge(1, 0) << endl;
+		cout << "W(1,2):" << g.getEdge(1, 2) << endl;
+		SharedPointer<Array<int>>aj = g.getAdjacent(0);
+		for (int i = 0; i < aj->length(); i++)
 		{
-			cout << node->value << " ";
-			node = dynamic_cast<BTreeNode<int>*>( node->parent);
+			cout << (*aj)[i] << " ";
 		}
 		cout << endl;
+		cout << "Delete Edge: " << endl;
+		g.removeEdge(0, 1);
+		cout << "eCount: " << g.eCount() << endl;
+		cout << "V(0):" << g.getVertex(0) << endl;
+		g.setVertex(0, 100);
+		cout << "V(0):" << g.getVertex(0) << endl;
+		
 	}
-	return;
+	catch (Exception & e)
+	{
+		cout << e.location() << endl;
+		cout << e.message() << endl;
+	}
+	
 }
