@@ -30,7 +30,7 @@
 
 	bool scan(const char* code)
 	{
-		LinkStatck<char> stack;
+		LinkStack<char> stack;
 		int i = 0;
 		bool ret = true;
 		code = (code == NULL) ? "" : code;

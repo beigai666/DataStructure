@@ -3,16 +3,16 @@
 #include <List/LinkList.h>
 namespace FinlayLib {
 	template<typename T>
-	class  LinkStatck: public Stack<T>
+	class  LinkStack: public Stack<T>
 	{
 	protected:
 		LinkList<T> m_list;
 
 	public:
-		LinkStatck()
+		LinkStack()
 		 {
 		 }
-		 ~LinkStatck()
+		 ~LinkStack()
 		 {
 		 }
 		 void push(const T& e)

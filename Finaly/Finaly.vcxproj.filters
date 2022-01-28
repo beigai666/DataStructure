@@ -105,7 +105,7 @@
     <ClInclude Include="Stack\StaticStack.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Stack\LinkStatck.h">
+    <ClInclude Include="Stack\LinkStack.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Queue\Queue.h">
