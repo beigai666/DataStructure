@@ -4,6 +4,7 @@
 #include <Exception/IndexOutOfBoundsException.h>
 #include<Exception/InvalidOperationException.h>
 namespace FinlayLib {
+	//Á´±í
 	template<typename T>
 	class LinkList : public List<T>
 	{

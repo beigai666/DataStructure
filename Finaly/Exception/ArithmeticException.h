@@ -3,6 +3,7 @@
 namespace FinlayLib {
 	class ArithmeticException : public Exception
 	{
+	public:
 		ArithmeticException() :Exception(0) {}
 
 		ArithmeticException(const char* message) :Exception(message) {}

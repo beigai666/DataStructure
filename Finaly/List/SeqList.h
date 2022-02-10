@@ -3,7 +3,7 @@
 #include "SeqList.h"
 #include <Exception/IndexOutOfBoundsException.h>
 namespace FinlayLib {
-
+	//顺序链表，所有数据存储在m_array指向内存中
 	template <typename T>
 	class SeqList :public List<T>
 	{

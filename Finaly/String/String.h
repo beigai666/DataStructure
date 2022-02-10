@@ -47,6 +47,7 @@ namespace FinlayLib {
 		String& operator =(const String& s);
 		String& operator =(const char* s);
 		String& operator =(const char s);
+		
 		char& operator[](int i);
 		char operator[] (int i)const;
 		bool startWith(const char* s)const;
@@ -55,7 +56,10 @@ namespace FinlayLib {
 		bool endOf(const String& s)const;
 		String& insert(int i, const char* s);
 		String& insert(int i, const String& s);
+		String& insert(const char* s);
+		String& insert(const String& s);
 		String& trim();
+		String sub(int i) const;
 		String sub(int i, int len)const;
 		int indexOf(const char* s)const;
 		int indexOf(const String& s)const;

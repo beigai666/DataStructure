@@ -2,6 +2,7 @@
 #include "List.h"
 #include <Exception/InvalidOperationException.h>
 namespace FinlayLib {
+	//Ë«ÏòÁ´±í
 	template<typename T>
 	class DualLinkList : public List<T>
 	{

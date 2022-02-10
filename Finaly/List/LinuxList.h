@@ -1,6 +1,6 @@
 #ifndef _LINUX_LIST_H
 #define _LINUX_LIST_H
-
+//linux¡¥±Ì
 // #include <linux/types.h>
 // #include <linux/stddef.h>
 // #include <linux/poison.h>

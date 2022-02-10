@@ -1,5 +1,5 @@
 #pragma once
-#include "LinkStatck.h"
+#include "LinkStack.h"
 #include <iostream>
  namespace FinlayLib {
 

@@ -5,6 +5,7 @@
 #include <Exception/NoEnoughMemoryException.h>
 namespace FinlayLib
 {
+	//Ë«ÏòÑ­»·Á´±í
 	template <typename T>
 	class DualCircleList : public DualLinkList<T>
 	{

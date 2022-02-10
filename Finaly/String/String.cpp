@@ -291,7 +291,14 @@ namespace FinlayLib {
 	String& String::insert(int i, const String& s) {
 		return insert(i, s.m_str);
 	}
-
+	String& String::insert(const char* s)
+	{
+		return insert(m_length, s);
+	}
+	String& String::insert(const String& s)
+	{
+		return insert(m_length, s);
+	}
 	String& String::trim()
 	{
 		int b = 0;
@@ -344,6 +351,12 @@ namespace FinlayLib {
 	String& String::remove(const String& s) {
 		return remove(indexOf(s), s.length());
 	}
+
+	String String::sub(int i) const
+	{
+		return sub(i, m_length);
+	}
+
 	String String::sub(int i, int len)const {
 		String ret;
 		if ((0 <= i) && (i < m_length) )

@@ -3,7 +3,7 @@
 #include <Exception/NoEnoughMemoryException.h>
 namespace FinlayLib {
 	template <typename T>
-
+	//¶¯Ì¬Á´±í
 	class DynamicList : public SeqList<T>
 	{
 	protected:

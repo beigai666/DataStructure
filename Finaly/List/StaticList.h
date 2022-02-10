@@ -1,6 +1,7 @@
 #pragma once
 #include "SeqList.h"
 namespace FinlayLib {
+	//æ≤Ã¨À≥–Ú¡¥±Ì
 	template<typename T,int N>
 	class StaticList : public SeqList<T>
 	{

@@ -3,6 +3,7 @@
 
 namespace FinlayLib {
 	template <typename T>
+	//Ñ­»·Á´±í
 	class CircleList : public LinkList<T>
 	{
 	protected:
@@ -118,7 +119,7 @@ namespace FinlayLib {
 			}
 		}
 
-		bool move(int i, int step) {
+		bool move(int i, int step = 1) {
 			return LinkList<T>::move(mod(i), step);
 		}
 
