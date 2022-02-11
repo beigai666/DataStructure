@@ -156,6 +156,7 @@
     <ClInclude Include="Array\Array.h" />
     <ClInclude Include="Array\DynamicArray.h" />
     <ClInclude Include="Array\HeapArray.h" />
+    <ClInclude Include="Array\RangeArray.h" />
     <ClInclude Include="Array\StaticArray.h" />
     <ClInclude Include="Exception\ArithmeticException.h" />
     <ClInclude Include="Exception\Exception.h" />
