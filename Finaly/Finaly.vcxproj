@@ -185,6 +185,7 @@
     <ClInclude Include="pointer\SmartPointer.h" />
     <ClInclude Include="pointer\WeakPtr.h" />
     <ClInclude Include="QueneSolution.h" />
+    <ClInclude Include="Queue\DualEndQueue.h" />
     <ClInclude Include="Queue\LinkQueue.h" />
     <ClInclude Include="Queue\Queue.h" />
     <ClInclude Include="Queue\StaticQueue.h" />

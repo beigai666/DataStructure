@@ -92,7 +92,7 @@ namespace FinlayLib {
 			return m_upper - m_lower +1;
 		}
 		~RangeArray() {
-
+			delete[] this->m_array;
 		}
 
 	private:
