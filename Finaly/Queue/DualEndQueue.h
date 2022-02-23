@@ -47,6 +47,10 @@ namespace FinlayLib
 			{
 				return list_entry(this->m_header.prev, Node, head)->value;
 			}
+			else
+			{
+				THROW_EXCEPTION(InvalidOperationException, "No element in current queue ...");
+			}
 		}
 
 	private:

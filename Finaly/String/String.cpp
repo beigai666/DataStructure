@@ -6,7 +6,7 @@
 namespace FinlayLib {
 
 	int* String::make_pmt(const char* p) {
-		int len = strlen(p);
+		size_t len = strlen(p);
 		int* ret = static_cast<int*>(malloc(sizeof(int) * len));
 		if (ret != NULL)
 		{
@@ -30,11 +30,11 @@ namespace FinlayLib {
 	int String::kmp(const char* s, const char* p)
 	{
 		int ret = -1;
-		int sl = strlen(s);
-		int pl = strlen(p);
+		size_t sl = strlen(s);
+		size_t pl = strlen(p);
 		int* pmt = make_pmt(p);
 		if ((pmt != NULL) && (0 < pl) && (pl <= sl)) {
-			for (int i = 0, j = 0; i < sl; i++)
+			for (size_t i = 0, j = 0; i < sl; i++)
 			{
 				while ((j > 0) && (s[i] != p[j]))
 				{
@@ -88,7 +88,7 @@ namespace FinlayLib {
 		return ret;
 	}
 
-	int String::length()const {
+	size_t String::length()const {
 		return m_length;
 	}
 
@@ -241,7 +241,7 @@ namespace FinlayLib {
 	bool String::startWith(const char* s)const {
 		bool ret = (s != NULL);
 		if (ret) {
-			int len = strlen(s);
+			size_t len = strlen(s);
 			ret = (len < m_length)&& equal(m_str, s, len);
 		}
 		return ret;
@@ -265,7 +265,7 @@ namespace FinlayLib {
 	String& String::insert(int i, const char* s) {
 		if ((0 <= i) && (i <= m_length)) {
 			if ((s != NULL) && (s[0] != '\0')) {
-				int len = strlen(s);
+				size_t len = strlen(s);
 				char* str = reinterpret_cast<char*>(malloc(m_length + len + 1));
 				if (str != NULL) {
 					strncpy(str, m_str, i);

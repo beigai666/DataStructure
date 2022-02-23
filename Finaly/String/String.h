@@ -6,7 +6,7 @@ namespace FinlayLib {
 	{
 	protected:
 		char* m_str;
-		int m_length;
+		size_t m_length;
 		void init(const char* s);
 		bool equal(const char* l, const char* r, int len)const;
 		static int* make_pmt(const char* p);
@@ -16,7 +16,7 @@ namespace FinlayLib {
 		String(char c);
 		String(const char* s);
 		String(const String& s);
-		int length()const;
+		size_t length()const;
 		const char* str()const;
 		String& replace(const char* t, const char*s);
 		String& replace(const String& t,const char* s );

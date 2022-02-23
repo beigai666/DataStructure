@@ -132,7 +132,9 @@ namespace FinlayLib {
         {
             return OD(i) + ID(i);
         }
-
+        /*
+        * 判断图是否为一个无向图
+        */
         bool asUndirected()
         {
             bool ret = true;
@@ -150,6 +152,70 @@ namespace FinlayLib {
 
             return ret;
         }
+
+        SharedPointer<Array<Edge<E>>> myprim(const E& LIMIT)
+        {
+            LinkQueue< Edge<E>> ret;
+            //asUndirected函数是为了判断图是一个无向图
+            if (asUndirected())
+            {
+                //mark数组用于标记已经被选择的顶点
+                DynamicArray<bool> mark(vCount());
+                //cost 用于保存权值
+                DynamicArray<E> cost(vCount());
+                //adjVex用于保存未选中的顶点到被选中顶点集合的最小权值对应的被选中顶点
+                DynamicArray<int> adjVex(vCount());
+                
+                for (int i = 0; i < vCount(); i++)
+                {
+                    mark[i] = false;
+                    cost[i] = LIMIT;
+                    adjVex[i] = -1;
+                }
+                //先选择0号顶点
+                int v = 0;
+                SharedPointer<Array<int>> aj = NULL;
+                aj = getAdjacent(v);
+                mark[v] = true;
+                for (int i = 0; i <aj->length(); i++)
+                {
+                    adjVex[(*aj)[i]] = v;
+                    cost[(*aj)[i]] = getEdge(v, (*aj)[i]);
+                }
+                bool end = false;
+                while (!end)
+                {
+                    v = -1;
+                    E e=LIMIT;
+                    for (int i = 0; i < vCount(); i++)
+                    {
+                        if (!mark[i] && e > cost[i]) {
+                            e = cost[i];
+                            v = i;
+                        }
+                    }
+                    end = (v == -1);
+                    if (!end)
+                    {
+                        mark[v] = true;
+                        ret.add(Edge<E>(adjVex[v], v, e));
+                        aj = getAdjacent(v);
+                        for (int i = 0; i < aj->length(); i++)
+                        {
+                            if (!mark[(*aj)[i]] && (cost[(*aj)[i]] > getEdge(v, (*aj)[i])))
+                            {
+                                adjVex[(*aj)[i]] = v;
+                                cost[(*aj)[i]] = getEdge(v, (*aj)[i]);
+                            }   
+                        }
+                    }
+
+                }
+            }
+            return toArray(ret);
+        }
+
+
         SharedPointer< Array< Edge<E> > >prim(const E& LIMIT, const bool MINIMUM = true)
         {
             LinkQueue< Edge<E>> ret;
@@ -237,7 +303,29 @@ namespace FinlayLib {
 
             return toArray(ret);
         }
-
+        SharedPointer< Array< Edge<E> > > mykruskal()
+        {
+            LinkQueue< Edge<E>> ret;
+            //判断是否可以看做无向图
+            SharedPointer< Array< Edge<E> > > edges = getUndirectedEdges();
+            DynamicArray<int> p(vCount());
+            for (int i = 0; i < p.length(); i++)
+            {
+                p[i] = -1;
+            }
+            Sort::Shell(*edges);
+            for (int i = 0;( i < edges->length() && ret.length() < (vCount()-1)); i++) {
+                Edge<E> edg = (*edges)[i];
+                int b = find(p, edg.b);
+                int e = find(p, edg.e);
+                if (b != e)
+                {
+                    p[b] = e;
+                    ret.add(edg);
+                }
+            }
+            return toArray(ret);
+        }
         SharedPointer< Array< Edge<E> > > kruskal(const bool MINMUM = true)
         {
             LinkQueue< Edge<E> > ret;
@@ -543,5 +631,6 @@ namespace FinlayLib {
         {
             visited[i] = false;
         }
+        DFS(g,v,visited);
     }
 }

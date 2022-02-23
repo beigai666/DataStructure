@@ -159,6 +159,9 @@
     <ClInclude Include="Queue\DualEndQueue.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Tree\BTreeArray.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Finaly.cpp">

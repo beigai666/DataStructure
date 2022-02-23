@@ -30,7 +30,7 @@ namespace FinlayLib {
 		{
 			if (this != &obj) {
 				int len = obj.length();
-				T* toDel = obj.m_array;
+				T* toDel = this->m_array;
 				T* array = new T[len];
 				if (array != NULL) {
 					for (int i = 0; i < len; i++)
@@ -56,7 +56,7 @@ namespace FinlayLib {
 		}
 		bool get(int i, T& e)
 		{
-			bool ret = m_lower <= i && i <= m_upper;
+			bool ret = (m_lower <= i && i <= m_upper);
 			if (ret)
 			{
 				e = this->m_array[i - m_lower];

@@ -5,17 +5,18 @@
   List.h
   Object.cpp
   String.cpp
-F:\DataStructure\Finaly\String\String.cpp(9,22): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-F:\DataStructure\Finaly\String\String.cpp(33,21): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-F:\DataStructure\Finaly\String\String.cpp(34,21): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-F:\DataStructure\Finaly\String\String.cpp(76,28): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
-F:\DataStructure\Finaly\String\String.cpp(163,42): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-F:\DataStructure\Finaly\String\String.cpp(213,29): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
-F:\DataStructure\Finaly\String\String.cpp(244,23): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-F:\DataStructure\Finaly\String\String.cpp(255,23): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-F:\DataStructure\Finaly\String\String.cpp(268,24): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-F:\DataStructure\Finaly\String\String.cpp(348,46): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
   1.cpp
-  正在生成代码...
-F:\DataStructure\Finaly\Queue\DualEndQueue.h(50): warning C4715: “FinlayLib::DualEndQueue<int>::back”: 不是所有的控件路径都返回值
-  Finaly.vcxproj -> F:\DataStructure\x64\Debug\Finaly.lib
+D:\DataStructure\Finaly\String\String.cpp(48,22): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\DataStructure\Finaly\String\String.cpp(163,42): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\DataStructure\Finaly\String\String.cpp(245,48): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\DataStructure\Finaly\String\String.cpp(255,23): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\DataStructure\Finaly\String\String.cpp(296,28): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\DataStructure\Finaly\String\String.cpp(300,28): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\DataStructure\Finaly\String\String.cpp(305,23): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\DataStructure\Finaly\String\String.cpp(348,46): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\DataStructure\Finaly\String\String.cpp(352,39): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\DataStructure\Finaly\String\String.cpp(357,25): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\DataStructure\Finaly\String\String.cpp(365,45): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\DataStructure\Finaly\Finaly.cpp(155,32): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+D:\DataStructure\Finaly\Finaly.cpp(173,24): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  Finaly.vcxproj -> D:\DataStructure\x64\Debug\Finaly.lib
