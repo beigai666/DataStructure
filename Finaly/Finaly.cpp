@@ -7,6 +7,8 @@
 #include <Tree/BTreeArray.h>
 #include <Graph/ListGraph.h>
 #include <Graph/MatrixGraph.h>
+#include <Heap/DynamicHeap.h>
+#include <Sort/Sort.h>
 // TODO: 这是一个库函数示例
 using namespace FinlayLib;
 using namespace std;
@@ -152,19 +154,22 @@ void fnFinaly()
 	int a[6] = { 1,2,6,4,5,3 };
 	int len = sizeof(a) / sizeof(*a);
 	cout <<"len:" << len << endl;
-	BTreeArray<int> arr(log2(len) + 1);
-	for (int i = 1, j = 0; j < len; i++, j++)
+	DynamicHeap<int> arr(len);
+	for (int i = 0; i < len; i++)
 	{
-		arr.set(i, a[j]);
+		arr.add(a[i]);
 	}
-	if (arr.ToHeap())
+	while ( arr.length()>0)
 	{
-		for (int i = 1; i <= arr.count(); i++)
-		{
-			cout << arr[i] << endl;
-		}
+		cout << arr.front() << endl;
+		arr.remove();
 	}
-	cout << arr.IsHeap(1) << endl;
+	Sort::Heap<int>(a, len);
+	for (int i = 0; i < len; i++)
+	{
+		cout << a[i] << endl;
+	}
+	/*
 	Graph<int, int>& g = GraphComplex<int,int>();
 	//SharedPointer<Array<Edge<int>>> sa = g.myprim(65535);
 	SharedPointer<Array<Edge<int>>> sa = g.mykruskal();
@@ -173,5 +178,5 @@ void fnFinaly()
 		Edge<int> e = (*sa)[i];
 		cout <<"(" << e.b <<"," << e.e<<")=" << e.data << endl;
 	}
-	
+	*/
 }

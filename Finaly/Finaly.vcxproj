@@ -168,6 +168,9 @@
     <ClInclude Include="Exception\InvalidOperationException.h" />
     <ClInclude Include="Graph\ListGraph.h" />
     <ClInclude Include="Graph\MatrixGraph.h" />
+    <ClInclude Include="Heap\DynamicHeap.h" />
+    <ClInclude Include="Heap\Heap.h" />
+    <ClInclude Include="Heap\StaticHeap.h" />
     <ClInclude Include="List\CircleList.h" />
     <ClInclude Include="List\DualCircleList.h" />
     <ClInclude Include="List\DualLinkList.h" />

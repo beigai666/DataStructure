@@ -1,5 +1,6 @@
 #pragma once
 #include <Array/Array.h>
+#include <Heap/DynamicHeap.h>
 #include <Object/Object.h>
 namespace FinlayLib {
 	class Sort : public Object
@@ -17,6 +18,26 @@ namespace FinlayLib {
 		}
 
 	public:
+		template <typename T>
+		static void Heap(T array[],int len, bool min2max = true)
+		{
+			DynamicHeap<T> heap(len, !min2max);
+			for (int i = 0; i < len; i++)
+			{
+				heap.add(array[i]);
+			}
+			for (int i = 0; i < len; i++)
+			{
+				array[i] = heap.front();
+				heap.remove();
+			}
+		} 
+		template <typename T>
+		static void Heap(Array<T>& array, bool min2max = true)
+		{
+			Heap(array.array(), array.length(), min2max);
+		}
+
 		template<typename T>
 		static void Select(T array[], int length,bool min2max=true) {
 			for (int i = 0; i < length; i++)
