@@ -6,6 +6,7 @@
   Object.cpp
   String.cpp
   1.cpp
+  2.cpp
 D:\DataStructure\Finaly\String\String.cpp(48,22): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
 D:\DataStructure\Finaly\String\String.cpp(163,42): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
 D:\DataStructure\Finaly\String\String.cpp(245,48): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
