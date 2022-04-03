@@ -21,36 +21,16 @@ bool IsOrdered(int a[], int n, bool min2max = true);
 int MaxInArray(int a[], int n);
 void subset(String str, DynamicList<FinlayLib::String>& ret);
 void deduplication(List<int>& ret, List<int>& str, int n);
+bool IsIntStr(const char* s, int& n);
+int FindMid(int a[], int n);
+void test();
 void fnFinaly()
 {
-	int a[10] = { 1,20,3,4,5,6,7,8,9,10 };
-	cout<< IsContained(a,10,10)<<endl;
-
-	cout << IsOrdered(a, 10)<<endl;
-
-	cout << MaxInArray(a, 10) << endl;
-/*
-	String str = "abc";
-	DynamicList<FinlayLib::String> list(8);
-	subset(str, list);
-	for (int i = 0; i < list.length(); i++)
-	{
-		cout << list[i].str() << endl;
-	}
-	*/
-	LinkList<int> str;
-	str.insert(1);
-	str.insert(3);
-	str.insert(1);
-	str.insert(5);
-	str.insert(3);
-	str.insert(5);
-	str.insert(7);
-	LinkList<int> temp;
-	deduplication(str, temp, 7);
-	for (int i = 0; i < str.length(); i++)
-	{	
-		cout << str.get(i) << endl;
-	}
+	test();
+	const char* s = "123456";
+	int n = 0;
+	std::cout <<IsIntStr(s,n)<<" num=" << n << endl;
+	int arr[] = { 5,2,3,4,1,6,7,8,9 };
+	std::cout << FindMid(arr, 9) << std::endl;
 }
 

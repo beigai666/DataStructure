@@ -203,5 +203,11 @@
     <ClCompile Include="work\4.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="work\6.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="work\8.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

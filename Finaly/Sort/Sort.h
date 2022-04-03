@@ -197,7 +197,7 @@ namespace FinlayLib {
 		{
 			if (begin < end)
 			{
-				int pivot = Partition(array, begin, end, min2max);
+				int pivot= Partition(array, begin, end, min2max);
 				Quick(array, begin, pivot - 1, min2max);
 				Quick(array, pivot + 1, end ,min2max);
 			}
