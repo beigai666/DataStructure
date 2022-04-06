@@ -27,10 +27,12 @@ void test();
 void fnFinaly()
 {
 	test();
+	/*
 	const char* s = "123456";
 	int n = 0;
 	std::cout <<IsIntStr(s,n)<<" num=" << n << endl;
 	int arr[] = { 5,2,3,4,1,6,7,8,9 };
 	std::cout << FindMid(arr, 9) << std::endl;
+	*/
 }
 

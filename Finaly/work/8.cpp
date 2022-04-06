@@ -2,6 +2,7 @@
 #include <Windows.h>
 #include <iostream>
 #include <Array/DynamicArray.h>
+#include <List/LinkList.h>
 #include <Stack/LinkStack.h>
 #include <String/String.h>
 using namespace std;
@@ -10,36 +11,44 @@ typedef struct Goods
 {
 	int weight;
 	int value;
-	
+	bool operator == (const Goods& s)const
+	{
+		if (this->weight == s.weight && this->value == s.value)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 }Goods;
-template< typename T >
-void Print(Stack<T>& stack,int weight)
+
+void Print(Stack<Goods>& stack,int maxValue)
 {
-	LinkStack<T> tmp;
+	LinkStack<Goods> tmp;
 
 	while (stack.size())
 	{
-		T e = stack.top();
+		Goods e = stack.top();
 
 		tmp.push(e);
 
 		stack.pop();
 	}
 
-	cout << "[ ";
-
 	while (tmp.size())
 	{
-		T e = tmp.top();
+		Goods e = tmp.top();
 
-		cout << e << ", ";
+		cout <<" [" << e.weight << "," << e.value<< "] ";
 
 		stack.push(e);
 
 		tmp.pop();
 	}
 
-	cout << "] ="<< weight << endl;
+	cout <<" maxValue = "<< maxValue << endl;
 }
 
 void Print(Stack<String>& stack)
@@ -71,70 +80,107 @@ void Print(Stack<String>& stack)
 	cout << "]"  << endl;
 }
 
-
-
-int knapsack_problem(int weight_cout, Goods* list,int len, int b, Stack<int>& stack)
-{
-	int i = b;
-	int g_value=0;
-	int value = 0;
-	int weight=0;
-	if (i == len)
+void taskcpy(Stack<Goods>& stack, Stack<Goods>& retstack) {
+	retstack.clear();
+	LinkStack<Goods> tmp;
+	while (stack.size())
 	{
-		Print(stack, 10 - weight_cout);
+		Goods e = stack.top();
+		tmp.push(e);
+		stack.pop();
 	}
-	while( i < len)
+	while (tmp.size())
 	{
-		
-		if (weight_cout >= list[i].weight)
-		{
-			stack.push(list[i].weight);
-			std::cout << i<<"=>weight:" << list[i].weight << std::endl;
-			value = knapsack_problem(weight_cout - list[i].weight, list, len,i+1,stack)+ list[i].value;
-			if (value > g_value)
-			{
-				g_value = value;
-				weight = list[i].weight;
-			}
-			stack.pop();
-		}
-		else
-		{
-			Print(stack,10- weight_cout);
-		}
-		
-		i++;
+		Goods e = tmp.top();
+		retstack.push(e);
+		stack.push(e);
+		tmp.pop();
 	}
-	return g_value;
 }
 
-void recovery_ip(FinlayLib::String str, Stack<String>& stack,int num)
+void knapsack_problem(int totalweight, Goods* list,int begin,int end,int& maxValue,int& indexValue, Stack<Goods>& stack, Stack<Goods>& retstack)
 {
-	if (stack.size() >= 4)
+	int i = begin;
+	int weight=0;
+	if (begin > end && indexValue > maxValue)
 	{
+		maxValue = indexValue;
+		taskcpy(stack, retstack);
+	}
+	while(i <= end)
+	{
+		if (totalweight >= list[i].weight)
+		{
+			stack.push(list[i]);
+			indexValue += list[i].value;
+			knapsack_problem(totalweight - list[i].weight, list,i+1,end,maxValue,indexValue,stack,retstack);
+			indexValue -= list[i].value;
+			stack.pop();
+		}
+		else if(indexValue>maxValue)
+		{
+			maxValue = indexValue;
+			taskcpy(stack, retstack);
+		}
+		i++;
+	}
+	return;
+}
+void knapsack_problem(int totalweight, Goods* list, int len)
+{
+	LinkStack<Goods> stack;
+	LinkStack<Goods> retstack;
+	//Goods list[] = { {7,5},{2,4},{3,3},{4,2},{5,1} };
+	int maxValue = 0;
+	int indexValue = 0;
+	knapsack_problem(totalweight, list, 0, len-1, maxValue, indexValue, stack, retstack);
+	Print(retstack,maxValue);
+}
+
+bool IsValid(String tmp) {
+	if (tmp[0] != '0' && atoi(tmp.str()) <= 255)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+void MakeIp(FinlayLib::String str,int i,List<String>& seg, List<String>& retsult)
+{
+	if (i==str.length() && seg.length() == 4)
+	{
+		String ip;
+		for (int i=0;i<seg.length();i++)
+		{
+			String str;
+			seg.get(i, str);
+			ip += str + ".";
+		}
+		ip.remove(ip.length() - 1, 1);
+		retsult.insert(ip);
 		return;
 	}
-	for (int i = 0; i < 3&&i<str.length(); i++)
+	else if (i < str.length())
 	{
-		String string = str.sub(0, i + 1);
-		if (i > 0&&string[0]=='0')
+		int index = seg.length();
+		String current="";
+		String tmp = "";
+		seg.get(index - 1, current);
+		tmp = current + str[i];
+		if (index > 0&& IsValid(tmp))
 		{
-			continue;
+				seg.set(index-1, tmp);
+				MakeIp(str, i + 1, seg, retsult);
+				seg.set(index - 1, current);
 		}
-		const char* c_str = string.str();
-		int num = atoi(c_str);
-		if (num < 255)
+		if (index<4)
 		{
-			stack.push(c_str);
-			if (i + 1 < str.length())
-			{
-				recovery_ip(str.sub(i + 1), stack,num-1);
-			}
-			else if(stack.size()==4)
-			{
-				Print(stack);
-			}
-			stack.pop();
+			seg.insert(str[i]);
+			MakeIp(str, i + 1, seg, retsult);
+			seg.remove(index);
 		}
 	}
 }
@@ -221,15 +267,21 @@ void maze(int arr[NUM][NUM],int x,int y, Array<bool>& visited, LinkStack<Coordin
 
 void test()
 {
-	/*
-	LinkStack<int> stack;
-	Goods list[] = { {7,5},{2,4},{3,3},{4,2},{5,1} };
-	int value = knapsack_problem(10, list, 5, 0,stack);
-	std::cout << value << endl;
-	LinkStack<String> stack_string;
+	
+	//LinkStack<int> stack;
+	Goods list[] = { {1,5},{2,4},{3,3},{4,2},{5,1} };
+	knapsack_problem(10, list, 5);
+	
+	LinkList<String> seg;
+	LinkList<String> retsult;
 	FinlayLib::String str = "10203040";
-	recovery_ip(str, stack_string,3);
-	*/
+	MakeIp(str,0,seg,retsult);
+	for (int i = 0; i < retsult.length(); i++)
+	{
+		String ip = retsult.get(i);
+		std::cout <<ip.str() << endl;
+	}
+	/*
 	int arr[NUM][NUM] = {
 		0,0,0,1,1,1,1,1,1,1,
 		1,0,0,1,1,1,1,1,1,1,
@@ -249,4 +301,5 @@ void test()
 		visited[i] = false;
 	}
 	maze(arr, 0, 0, visited, stack);
+	*/
 }
