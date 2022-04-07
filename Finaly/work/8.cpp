@@ -265,6 +265,48 @@ void maze(int arr[NUM][NUM],int x,int y, Array<bool>& visited, LinkStack<Coordin
 	return;
 }
 
+void Reverse(int arr[], int start, int end)
+{
+
+	int tem = 0;
+	while (start<end)
+	{
+		tem = arr[start];
+		arr[start] = arr[end];
+		arr[end] = tem;
+		start++;
+		end--;
+	}
+}
+
+void ReverseSort(int* arry, int n)
+{
+	cout << n << "		:";
+	for (int i = 0; i < 10; i++)
+	{
+		cout << arry[i] << " ";
+	}
+	cout << endl;
+	if (n > 0) {
+		int max = 0;
+		int max_index = 0;
+		for (int i = 0; i < n; i++)
+		{
+			if (max < arry[i])
+			{
+				max = arry[i];
+				max_index = i;
+			}
+		}
+		if (max_index < n - 1)
+		{
+			Reverse(arry, 0, max_index);
+			Reverse(arry, 0, n - 1);
+		}
+		ReverseSort(arry, n - 1);
+	}
+}
+
 void test()
 {
 	
@@ -281,6 +323,14 @@ void test()
 		String ip = retsult.get(i);
 		std::cout <<ip.str() << endl;
 	}
+
+	int arr[10] = { 5,7,3,2,9,8,4,1,6,0 };
+	ReverseSort(arr, 10);
+	for (int i = 0; i < 10; i++)
+	{
+		cout << arr[i] << " ";
+	}
+	cout << endl;
 	/*
 	int arr[NUM][NUM] = {
 		0,0,0,1,1,1,1,1,1,1,
