@@ -192,6 +192,7 @@
     <ClInclude Include="Queue\LinkQueue.h" />
     <ClInclude Include="Queue\Queue.h" />
     <ClInclude Include="Queue\StaticQueue.h" />
+    <ClInclude Include="Sort\ListSort.h" />
     <ClInclude Include="Sort\Sort.h" />
     <ClInclude Include="Stack\LinkStack.h" />
     <ClInclude Include="Stack\Stack.h" />
@@ -220,6 +221,7 @@
     </ClCompile>
     <ClCompile Include="String\String.cpp" />
     <ClCompile Include="work\1.cpp" />
+    <ClCompile Include="work\2-1.cpp" />
     <ClCompile Include="work\2.cpp" />
     <ClCompile Include="work\4.cpp" />
     <ClCompile Include="work\6.cpp" />

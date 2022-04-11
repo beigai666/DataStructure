@@ -37,11 +37,20 @@ namespace FinlayLib {
 		{
 			Heap(array.array(), array.length(), min2max);
 		}
-
+		/*
+		*	选择排序
+		* 选择排序的基本思想
+		* 每次(例如第i次，i=0,....n-2)从后面n-i个待排序的数据中
+		* 选出关键字最小的元素，作为有序元素序列第i个元素
+		* 
+		*/
 		template<typename T>
 		static void Select(T array[], int length,bool min2max=true) {
 			for (int i = 0; i < length; i++)
 			{
+				/*
+				*选择从i开始以后的数据中最小的数，并将最小的数放入i位置
+				*/
 				int min = i;
 				for (int j = i+1; j < length; j++)
 				{
@@ -56,7 +65,13 @@ namespace FinlayLib {
 				}
 			}
 		}
-
+		/**
+		* 插入排序的基本思想
+		* - 当插入第i（i>=1）个数据元素，前面V[0],V[1],....,
+		* V[i-1]已经排好序；这时,用V[i]的关键字与V[i-1]，
+		* V[i-2]，...V[0]的关键字进行比较，找到位置后将V[i]插入，
+		* 原来位置上的对象向后顺移。
+		*/
 		template <typename T>
 		static void Insert(T array[], int length, bool min2max = true)
 		{
@@ -75,7 +90,12 @@ namespace FinlayLib {
 				}
 			}
 		}
-
+		/*
+		* 冒泡排序的基本思想
+		* 每次从后向前进行（假设第i次），j=n-1,n-2,...,i,
+		* 两两比较V[j-1]和V[j]的关键字；如果发生逆序，则
+		* 交换V[j-1]和V[j]。
+		*/
 		template <typename T>
 		static void Bubble(T array[], int len, bool min2max = true) {
 			bool exchange = true;
@@ -91,7 +111,11 @@ namespace FinlayLib {
 				}
 			}
 		}
-
+		/*
+		*希尔排序的基本思想
+		* - 将待排序序列分为若干组，在每一组内进行插入排序，以
+		* 使整个序列基本有序，然后在对整个序列进行插入排序
+		*/
 		template <typename T>
 		static void Shell(T array[], int length, bool min2max = true)
 		{
@@ -146,7 +170,14 @@ namespace FinlayLib {
 				src[i] = helper[i];
 			}
 		}
-
+		/*
+		*归并排序的基本思想
+		* - 将两个或两个以上的有序序列合并成一个新的有序序列
+		* 有序序列V[0]....V[m]和V[m+1]...V[n-1]
+		*					↓↓↓
+		*				V[0]...V[n-1]
+		* 这个归并方法称为2路归并。
+		*/
 		template <typename T>
 		static void Merge(T src[], T helper[], int begin, int end, bool min2max = true)
 		{
@@ -191,7 +222,17 @@ namespace FinlayLib {
 			}
 			return begin;
 		}
-
+		/*
+		* 快速排序的基本思想
+		* - 任取序列中的某个数据元素作为基准将整个序列划分为左右
+		* 两个子序列
+		*	. 左侧子序列中所有元素都小于或等于基准元素
+		*	. 右侧子序列所有元素都大于基准元素
+		*	. 基准元素排在这两个子序列中间
+		* 
+		* - 分别对这两个子序列重复进行划分，直到所有的数据元素
+		* 都排在相应位置为止
+		*/
 		template <typename T>
 		static void Quick(T array[], int begin, int end, bool min2max = true)
 		{

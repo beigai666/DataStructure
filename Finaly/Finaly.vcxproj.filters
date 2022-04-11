@@ -171,6 +171,9 @@
     <ClInclude Include="Heap\DynamicHeap.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Sort\ListSort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Finaly.cpp">
@@ -207,6 +210,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="work\8.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="work\2-1.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

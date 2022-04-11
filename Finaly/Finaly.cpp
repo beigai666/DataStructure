@@ -24,9 +24,11 @@ void deduplication(List<int>& ret, List<int>& str, int n);
 bool IsIntStr(const char* s, int& n);
 int FindMid(int a[], int n);
 void test();
+void StackSort();
 void fnFinaly()
 {
-	test();
+	StackSort();
+	//test();
 	/*
 	const char* s = "123456";
 	int n = 0;
