@@ -18,6 +18,7 @@ E:\DataStructure\Finaly\String\String.cpp(357,25): warning C4267: “参数”: 
 E:\DataStructure\Finaly\String\String.cpp(365,45): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
   1.cpp
   2-1.cpp
+  2-2.cpp
   2.cpp
   4.cpp
   6.cpp

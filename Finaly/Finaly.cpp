@@ -25,9 +25,13 @@ bool IsIntStr(const char* s, int& n);
 int FindMid(int a[], int n);
 void test();
 void StackSort();
+void StackReverse();
+void PlanetCollision();
 void fnFinaly()
 {
-	StackSort();
+	//StackReverse();
+	PlanetCollision();
+	//StackSort();
 	//test();
 	/*
 	const char* s = "123456";

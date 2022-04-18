@@ -222,6 +222,7 @@
     <ClCompile Include="String\String.cpp" />
     <ClCompile Include="work\1.cpp" />
     <ClCompile Include="work\2-1.cpp" />
+    <ClCompile Include="work\2-2.cpp" />
     <ClCompile Include="work\2.cpp" />
     <ClCompile Include="work\4.cpp" />
     <ClCompile Include="work\6.cpp" />
