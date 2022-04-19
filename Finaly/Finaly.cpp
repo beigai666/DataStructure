@@ -11,6 +11,7 @@
 #include <Sort/Sort.h>
 #include <List/DynamicList.h>
 #include <String/String.h>
+#include <Tree/BSTree.h>
 // TODO: 这是一个库函数示例
 using namespace FinlayLib;
 using namespace std;
@@ -29,8 +30,23 @@ void StackReverse();
 void PlanetCollision();
 void fnFinaly()
 {
+	BSTree<int> bstree;
+
+	bstree.insert(10,NULL);
+	bstree.insert(18, NULL);
+	bstree.insert(8, NULL);
+	bstree.insert(5, NULL);
+	bstree.insert(9, NULL);
+	bstree.insert(15, NULL);
+	bstree.insert(20, NULL);
+	SharedPointer< Array<int> > arr = bstree.traversal(LevelOrder);
+	for (int i=0;i<arr->length();i++)
+	{
+		cout << " " << i << "=" << (*arr)[i]<<" ";
+	}
+	cout << endl;
 	//StackReverse();
-	PlanetCollision();
+	//PlanetCollision();
 	//StackSort();
 	//test();
 	/*
