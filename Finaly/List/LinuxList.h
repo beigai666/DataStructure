@@ -1,10 +1,6 @@
 #ifndef _LINUX_LIST_H
 #define _LINUX_LIST_H
-//linux¡¥±Ì
-// #include <linux/types.h>
-// #include <linux/stddef.h>
-// #include <linux/poison.h>
-// #include <linux/prefetch.h>
+#define NULL 0
 
 #ifndef offsetof
 #define offsetof(TYPE, MEMBER) ((size_t) &((TYPE *)0)->MEMBER)
