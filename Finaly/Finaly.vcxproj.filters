@@ -177,6 +177,12 @@
     <ClInclude Include="Tree\BSTree.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Tree\AVLTree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Tree\AVLTreeNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Finaly.cpp">

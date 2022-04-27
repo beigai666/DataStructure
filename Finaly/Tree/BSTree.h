@@ -1,5 +1,7 @@
 #pragma once
 #include "Tree.h"
+#include <Queue/LinkQueue.h>
+#include <Array/DynamicArray.h>
 #include "BTreeNode.h"
 namespace FinlayLib
 {
@@ -13,7 +15,7 @@ namespace FinlayLib
 	template<typename T>
 	class BSTree : public Tree<T>
 	{
-	
+	protected:
 		virtual BTreeNode<T>* find(BTreeNode<T>* node, const T& value)const
 		{
 			BTreeNode<T>* ret = NULL;
@@ -325,7 +327,7 @@ namespace FinlayLib
 					}
 					else
 					{
-						ret = insert(dynamic_cast<BTreeNode<T>*>(node), dynamic_cast<BTreeNode<T>*>(root()));
+						ret = insert(dynamic_cast<BTreeNode<T>*>(node), root());
 					}
 				}
 				else
@@ -336,7 +338,7 @@ namespace FinlayLib
 			}
 			virtual BTreeNode<T>* find(const T& value)const
 			{
-				return find(dynamic_cast<BTreeNode<T>*>(root()), value);
+				return find(root(), value);
 			}
 			virtual SharedPointer< Tree<T>>remove(const T& value)
 			{
@@ -355,7 +357,7 @@ namespace FinlayLib
 
 			virtual BTreeNode<T>* find(TreeNode<T>* node) const
 			{
-				return find(dynamic_cast<BTreeNode<T>*>(root()), node);
+				return find(root(), node);
 			}
 
 			virtual SharedPointer< Tree<T>>remove(TreeNode<T>* node)
