@@ -11,52 +11,53 @@ using namespace std;
 
 void fnFinaly()
 {
-	AVLTree<int> avl;
+//	AVLTree<int> avl;
 	BSTree<int> bst;
-	avl.insert(20, NULL);
-	avl.insert(30, NULL);
-	avl.insert(31, NULL);
-	avl.insert(32, NULL);
-	avl.insert(33, NULL);
-	avl.insert(34, NULL);
-	SharedPointer< Array<int> > arr = avl.traversal(PreOrder);
+	bst.insert(20);
+	bst.insert(30);
+	bst.insert(31);
+	bst.insert(32);
+	bst.insert(33);
+	bst.insert(34);
+	SharedPointer< Array<int> > arr = bst.traversal(PreOrder);
 	for (int i = 0; i < arr->length(); i++)
 	{
 		cout << (*arr)[i] << " ";
 	}
 	cout << "##################" << endl;
-	SharedPointer< Array<int> > arr1 = avl.traversal(InOrder);
+	SharedPointer< Array<int> > arr1 = bst.traversal(InOrder);
 	for (int i = 0; i < arr1->length(); i++)
 	{
 		cout << (*arr1)[i] << " ";
 	}
 	cout << endl;
-	avl.insert(21, NULL);
-	avl.insert(19, NULL);
-	avl.insert(18, NULL);
-	SharedPointer< Array<int> > arr2=avl.traversal(PreOrder);
+	bst.insert(21);
+	bst.insert(19);
+	bst.insert(18);
+	SharedPointer< Array<int> > arr2= bst.traversal(PreOrder);
 	for (int i = 0; i < arr2->length(); i++)
 	{
 		cout << (*arr2)[i] <<" " ;
 	}
 	cout << "##################" << endl;
-	SharedPointer< Array<int> > arr3 = avl.traversal(InOrder);
+	SharedPointer< Array<int> > arr3 = bst.traversal(InOrder);
 	for (int i = 0; i < arr3->length(); i++)
 	{
 		cout << (*arr3)[i] << " ";
 	}
 	cout << endl;
-	avl.DeleteNode(20);
-	SharedPointer< Array<int> > arr4 = avl.traversal(PreOrder);
+	bst.remove(32);
+	SharedPointer< Array<int> > arr4 = bst.traversal(PreOrder);
 	for (int i = 0; i < arr4->length(); i++)
 	{
 		cout << (*arr4)[i] << " ";
 	}
 	cout << "##################" << endl;
-	SharedPointer< Array<int> > arr5 = avl.traversal(InOrder);
+	SharedPointer< Array<int> > arr5 = bst.traversal(InOrder);
 	for (int i = 0; i < arr5->length(); i++)
 	{
 		cout << (*arr5)[i] << " ";
 	}
+	//cout << bst.count() << endl;
 }
 

@@ -13,11 +13,13 @@ namespace FinlayLib
 		LevelOrder
 	};
 	template<typename T>
-	class BSTree : public Tree<T>
+	class BSTree
 	{
 	protected:
+		BTreeNode<T>* m_root;
 		virtual BTreeNode<T>* find(BTreeNode<T>* node, const T& value)const
 		{
+			
 			BTreeNode<T>* ret = NULL;
 			if (node != NULL)
 			{
@@ -63,35 +65,77 @@ namespace FinlayLib
 			}
 			return ret;
 		}
-
-		virtual void remove(BTreeNode<T>* node, BSTree<T>*& ret)
+		/*Ñ°ÕÒ×îÐ¡ÔªËØ*/
+		BTreeNode<T>* MinElement(BTreeNode<T>* node)
 		{
-			ret = new BSTree<T>();
-			if (ret == NULL)
-			{
-				THROW_EXCEPTION(NoEnoughMemoryException, "No memory to create new tree ...");
+			if (node->left)
+				return MinElement(node->left);
+			else
+				return node;
+		}
+		void replace(BTreeNode<T>* node, BTreeNode<T>* target)
+		{
+			BTreeNode<T>* node_parent = dynamic_cast<BTreeNode<T>*>(node->parent);
+			if (node_parent != NULL) {
+				if (node_parent->left == node)
+				{
+					node_parent->left = target;
+				}
+				else if (node_parent->right == node)
+				{
+					node_parent->right = target;
+				}
 			}
 			else
 			{
-				if (root() == node)
+				this->m_root = target;
+			}
+			if (target) {
+				target->parent = node_parent;
+				target->left = node->left;
+				target->right = node->right;
+			}
+			node->left = NULL;
+			node->right = NULL;
+			node->parent = NULL;
+		}
+
+		virtual BTreeNode<T>* DeleteNode(BTreeNode<T>* root, const T& var)
+		{
+			BTreeNode<T>* ret = NULL;
+			if (root->value > var)
+			{
+				ret = DeleteNode(root->left, var);
+			}
+			else if (root->value < var)
+			{
+				ret = DeleteNode(root->right, var);
+			}
+			else if (root != NULL)
+			{
+				ret = root;
+				if (root->right)
 				{
-					this->m_root = NULL;
+					BTreeNode<T>* target =MinElement(root->right);
+					DeleteNode(root->right, target->value);
+					replace(root, target);
+
+				}
+				else if (root->left)
+				{
+					replace(root, root->left);
+					root->left = NULL;
 				}
 				else
 				{
-					BTreeNode<T>* parent = dynamic_cast<BTreeNode<T>*>(node->parent);
-					if (parent->left == node)
-					{
-						parent->left = NULL;
-					}
-					else if (parent->right == node)
-					{
-						parent->right = NULL;
-					}
-					node->parent = NULL;
+					replace(root, NULL);
 				}
-				ret->m_root = node;
 			}
+			else
+			{
+				ret = NULL;
+			}
+			return ret;
 		}
 
 		virtual bool insert(BTreeNode<T>* n, BTreeNode<T>* np)
@@ -262,7 +306,7 @@ namespace FinlayLib
 
 			BSTree()
 			{
-
+				m_root = NULL;
 			}
 
 			~BSTree()
@@ -270,7 +314,7 @@ namespace FinlayLib
 				clear();
 			}
 
-			virtual bool insert(const T& value, TreeNode<T>* parent)
+			virtual bool insert(const T& value)
 			{
 				bool ret = false;
 				BTreeNode<T>* node = BTreeNode<T>::NewNode();
@@ -289,10 +333,20 @@ namespace FinlayLib
 				}
 				return ret;
 			}
-			
+			virtual bool remove(const T& value)
+			{
+				bool ret = false;
+				BTreeNode<T>* node = DeleteNode(root(), value);
+				if (node)
+				{
+					ret = true;
+					this->free(node);
+				}
+				return ret;
+			}
 			virtual BTreeNode<T>* root() const
 			{
-				return dynamic_cast<BTreeNode<T>*> (this->m_root);
+				return this->m_root;
 			}
 			virtual int degree()const
 			{
@@ -314,7 +368,7 @@ namespace FinlayLib
 				free(root());
 				this->m_root = NULL;
 			}
-			virtual bool insert(TreeNode<T>* node)
+			virtual bool insert(BTreeNode<T>* node)
 			{
 				bool ret = false;
 				if (node != NULL)
@@ -327,7 +381,7 @@ namespace FinlayLib
 					}
 					else
 					{
-						ret = insert(dynamic_cast<BTreeNode<T>*>(node), root());
+						ret = insert(node, root());
 					}
 				}
 				else
@@ -340,40 +394,11 @@ namespace FinlayLib
 			{
 				return find(root(), value);
 			}
-			virtual SharedPointer< Tree<T>>remove(const T& value)
-			{
-				BSTree<T>* ret = NULL;
-				BTreeNode<T>* node = find(value);
-				if (node == NULL)
-				{
-					THROW_EXCEPTION(InvalidParameterException, "can not find the tree node via value ...");
-				}
-				else
-				{
-					remove(node, ret);
-				}
-				return ret;
-			}
+			
 
-			virtual BTreeNode<T>* find(TreeNode<T>* node) const
+			virtual BTreeNode<T>* find(BTreeNode<T>* node) const
 			{
 				return find(root(), node);
-			}
-
-			virtual SharedPointer< Tree<T>>remove(TreeNode<T>* node)
-			{
-				BSTree<T>* ret = NULL;
-				node = find(node);
-				if (node == NULL)
-				{
-					THROW_EXCEPTION(InvalidParameterException, "Patameter node is invalid ...");
-				}
-				else
-				{
-					remove(dynamic_cast<BTreeNode<T>*>(node), ret);
-					
-				}
-				return ret;
 			}
 
 			SharedPointer< Array<T> > traversal(BTTraversal order)

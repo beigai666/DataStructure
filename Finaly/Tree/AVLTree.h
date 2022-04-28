@@ -138,46 +138,20 @@ namespace FinlayLib
 
 		void replace(AVLTreeNode<T>* node, AVLTreeNode<T>* target)
 		{
-			BTreeNode<T>* node_parent = dynamic_cast<BTreeNode<T>*>(node->parent);
-			if (node_parent != NULL) {
-				if (node_parent->left == node)
-				{
-					node_parent->left = target;
-				}
-				else if (node_parent->right == node)
-				{
-					node_parent->right = target;
-				}
-			}
-			else
-			{
-				this->m_root = target;
-			}
+			BSTree<T>::replace(node, target);
 			if (target) {
-				target->parent = node_parent;
-				target->left = node->left;
-				target->right = node->right;
 				target->bf = node->bf;
 			}
-			node->left = NULL;
-			node->right = NULL;
-			node->parent = NULL;
 		}
-		/*Ñ°ÕÒ×îÐ¡ÔªËØ*/
-		AVLTreeNode<T>* MinElement(AVLTreeNode<T>* node)
-		{
-			if (node->left)
-				return MinElement(dynamic_cast<AVLTreeNode<T>*>(node->left));
-			else
-				return node;
-		}
+		
 
-		AVLTreeNode<T>* DeleteNode(AVLTreeNode<T>* root,const T& var)
+		virtual AVLTreeNode<T>* DeleteNode(BTreeNode<T>* node,const T& var)
 		{
+			AVLTreeNode<T>* root = dynamic_cast<AVLTreeNode<T>*>(node);
 			AVLTreeNode<T>* ret= NULL;
 			if (root->value > var)
 			{
-				ret = DeleteNode(dynamic_cast<AVLTreeNode<T>*>(root->left), var);
+				ret = DeleteNode(root->left, var);
 				if (shorter)
 				{
 					switch (root->bf)
@@ -202,7 +176,7 @@ namespace FinlayLib
 			}
 			else if(root->value < var)
 			{
-				ret = DeleteNode(dynamic_cast<AVLTreeNode<T>*>(root->right), var);
+				ret = DeleteNode(root->right, var);
 				if (shorter)
 				{
 					switch (root->bf)
@@ -227,12 +201,12 @@ namespace FinlayLib
 			}
 			else if(root!=NULL)
 			{
-				ret = root;
+				ret = dynamic_cast<AVLTreeNode<T>*>(root);
 				if (root->right)
 				{
-					AVLTreeNode<T>* target = MinElement(dynamic_cast<AVLTreeNode<T>*>(root->right));
-					DeleteNode(dynamic_cast<AVLTreeNode<T>*>(root->right), target->value);
-					replace(root,target);
+					AVLTreeNode<T>* target = dynamic_cast<AVLTreeNode<T>*>(BSTree<T>::MinElement(root->right));
+					DeleteNode(root->right, target->value);
+					replace(dynamic_cast<AVLTreeNode<T>*>(root),target);
 					root = target;
 					if (shorter)
 					{
@@ -259,13 +233,13 @@ namespace FinlayLib
 				}
 				else if(root->left)
 				{
-					replace(root, dynamic_cast<AVLTreeNode<T>*>(root->left));
+					replace(dynamic_cast<AVLTreeNode<T>*>(root), dynamic_cast<AVLTreeNode<T>*>(root->left));
 					root->left = NULL;
 					shorter = true;
 				}
 				else
 				{
-					replace(root, NULL);
+					replace(dynamic_cast<AVLTreeNode<T>*>(root), NULL);
 					shorter = true;
 				}
 			}
@@ -344,7 +318,7 @@ namespace FinlayLib
 		{
 			return dynamic_cast<AVLTreeNode<T>*> (this->m_root);
 		}
-		virtual bool insert(const T& value, TreeNode<T>* parent)
+		virtual bool insert(const T& value)
 		{
 			bool ret = false;
 			AVLTreeNode<T>* node = AVLTreeNode<T>::NewNode();
@@ -363,9 +337,7 @@ namespace FinlayLib
 			}
 			return ret;
 		}
-
-		
-
+		/*
 		virtual bool DeleteNode(const T& value)
 		{
 			bool ret = false;
@@ -377,5 +349,6 @@ namespace FinlayLib
 			}
 			return ret;
 		}
+		*/
 	};
 }
