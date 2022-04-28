@@ -1,11 +1,14 @@
 #include "BSTree.h"
 #include "AVLTreeNode.h"
+#define LH	 -1
+#define EH	 0
+#define RH   1
 namespace FinlayLib
 {
 	template <typename T>
 	class AVLTree : public BSTree<T>
 	{
-
+		bool shorter;
 
 		//右单旋                                                                                                
 		void RotateR(AVLTreeNode<T>* node)
@@ -83,7 +86,7 @@ namespace FinlayLib
 			nodeR->bf = 0;
 		}
 		//左右双旋
-		void RotateLR(AVLTreeNode<T>*& node)
+		void RotateLR(AVLTreeNode<T>* node)
 		{
 			AVLTreeNode<T>* pNode = node;
 			AVLTreeNode<T>* nodeL = dynamic_cast<AVLTreeNode<T>*>(node->left);
@@ -108,7 +111,7 @@ namespace FinlayLib
 			}
 		}
 		//右左双旋
-		void RotateRL(AVLTreeNode<T>*& node)
+		void RotateRL(AVLTreeNode<T>* node)
 		{
 			AVLTreeNode<T>* pNode = node;
 			AVLTreeNode<T>* nodeR = dynamic_cast<AVLTreeNode<T>*>(node->right);
@@ -133,12 +136,153 @@ namespace FinlayLib
 			}
 		}
 
+		void replace(AVLTreeNode<T>* node, AVLTreeNode<T>* target)
+		{
+			BTreeNode<T>* node_parent = dynamic_cast<BTreeNode<T>*>(node->parent);
+			if (node_parent != NULL) {
+				if (node_parent->left == node)
+				{
+					node_parent->left = target;
+				}
+				else if (node_parent->right == node)
+				{
+					node_parent->right = target;
+				}
+			}
+			else
+			{
+				this->m_root = target;
+			}
+			if (target) {
+				target->parent = node_parent;
+				target->left = node->left;
+				target->right = node->right;
+				target->bf = node->bf;
+			}
+			node->left = NULL;
+			node->right = NULL;
+			node->parent = NULL;
+		}
+		/*寻找最小元素*/
+		AVLTreeNode<T>* MinElement(AVLTreeNode<T>* node)
+		{
+			if (node->left)
+				return MinElement(dynamic_cast<AVLTreeNode<T>*>(node->left));
+			else
+				return node;
+		}
+
+		AVLTreeNode<T>* DeleteNode(AVLTreeNode<T>* root,const T& var)
+		{
+			AVLTreeNode<T>* ret= NULL;
+			if (root->value > var)
+			{
+				ret = DeleteNode(dynamic_cast<AVLTreeNode<T>*>(root->left), var);
+				if (shorter)
+				{
+					switch (root->bf)
+					{
+						//原来左高，bf==-1，现在左子树减1，所以平衡
+					case LH:
+						root->bf=0; shorter = true;
+						break;
+						//原来等高，bf==0,现在左子树减1 ，所以bf==1
+					case EH:
+						root->bf = 1; shorter = false;
+						break;
+						//原来右高，bf==1，现在左子树减1，所以左旋
+					case RH:
+						RotateL(root); shorter = true;
+						break;
+
+					default:
+						break;
+					}
+				}
+			}
+			else if(root->value < var)
+			{
+				ret = DeleteNode(dynamic_cast<AVLTreeNode<T>*>(root->right), var);
+				if (shorter)
+				{
+					switch (root->bf)
+					{
+						//原来左高，bf==-1，现在右子树减1，所以需要右旋，调整平衡
+					case LH:
+						RotateR(root); shorter = true;
+						break;
+						//原来等高，bf==0,现在右子树减1 ，所以bf==-1
+					case EH:
+						root->bf = -1; shorter = false;
+						break;
+						//原来右高，bf==1，现在右子树减1，所以平衡
+					case RH:
+						root->bf = 0; shorter = true;
+						break;
+
+					default:
+						break;
+					}
+				}
+			}
+			else if(root!=NULL)
+			{
+				ret = root;
+				if (root->right)
+				{
+					AVLTreeNode<T>* target = MinElement(dynamic_cast<AVLTreeNode<T>*>(root->right));
+					DeleteNode(dynamic_cast<AVLTreeNode<T>*>(root->right), target->value);
+					replace(root,target);
+					root = target;
+					if (shorter)
+					{
+						switch (root->bf)
+						{
+							//原来左高，bf==-1，现在右子树减1，所以需要右旋，调整平衡
+						case LH:
+							RotateR(root); shorter = true;
+							break;
+							//原来等高，bf==0,现在右子树减1 ，所以bf==-1
+						case EH:
+							root->bf = -1; shorter = false;
+							break;
+							//原来右高，bf==1，现在右子树减1，所以平衡
+						case RH:
+							root->bf = 0; shorter = true;
+							break;
+						
+						default:
+							break;
+						}
+					}
+
+				}
+				else if(root->left)
+				{
+					replace(root, dynamic_cast<AVLTreeNode<T>*>(root->left));
+					root->left = NULL;
+					shorter = true;
+				}
+				else
+				{
+					replace(root, NULL);
+					shorter = true;
+				}
+			}
+			else
+			{
+				ret = NULL;
+			}
+			return ret;
+		}
+
+
 		virtual bool insert(BTreeNode<T>* n, BTreeNode<T>* np)
 		{
 			bool ret = false;
 			AVLTreeNode<T>* cur = dynamic_cast<AVLTreeNode<T>*>(n);
 			ret = BSTree<T>::insert(cur, np);
-			AVLTreeNode<T>* parent = dynamic_cast<AVLTreeNode<T>*>(n->parent);
+			AVLTreeNode<T>* parent = dynamic_cast<AVLTreeNode<T>*>(cur->parent);
 			while (parent)
 			{
 				if (cur == parent->left)
@@ -190,13 +334,16 @@ namespace FinlayLib
 	public:
 		AVLTree()
 		{
-
+			shorter = false;
 		}
 		~AVLTree()
 		{
 
 		}
-
+		virtual AVLTreeNode<T>* root() const
+		{
+			return dynamic_cast<AVLTreeNode<T>*> (this->m_root);
+		}
 		virtual bool insert(const T& value, TreeNode<T>* parent)
 		{
 			bool ret = false;
@@ -213,6 +360,20 @@ namespace FinlayLib
 				{
 					delete node;
 				}
+			}
+			return ret;
+		}
+
+		
+
+		virtual bool DeleteNode(const T& value)
+		{
+			bool ret = false;
+			AVLTreeNode<T>* node= DeleteNode(root(), value);
+			if (node)
+			{
+				ret = true;
+				this->free(node);
 			}
 			return ret;
 		}

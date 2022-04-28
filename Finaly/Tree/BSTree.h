@@ -103,7 +103,7 @@ namespace FinlayLib
 				{
 					if (np->left != NULL)
 					{
-						ret = insert(n, np->left);
+						ret = BSTree<T>::insert(n, np->left);
 					}
 					else
 					{
@@ -116,7 +116,7 @@ namespace FinlayLib
 				{
 					if (np->right != NULL)
 					{
-						ret = insert(n, np->right);
+						ret = BSTree<T>::insert(n, np->right);
 					}
 					else
 					{

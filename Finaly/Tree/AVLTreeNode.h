@@ -13,7 +13,7 @@ namespace FinlayLib
 		int bf;//Æ½ºâÒò×Ó
 		AVLTreeNode()
 		{
-
+			bf = 0;
 		}
 		~AVLTreeNode()
 		{
