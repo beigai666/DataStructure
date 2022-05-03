@@ -207,6 +207,8 @@
     <ClInclude Include="Tree\BTreeNode.h" />
     <ClInclude Include="Tree\GTree.h" />
     <ClInclude Include="Tree\GTreeNode.h" />
+    <ClInclude Include="Tree\RBTree.h" />
+    <ClInclude Include="Tree\RBTreeNode.h" />
     <ClInclude Include="Tree\Tree.h" />
     <ClInclude Include="Tree\TreeNode.h" />
   </ItemGroup>

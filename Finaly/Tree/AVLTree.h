@@ -337,18 +337,6 @@ namespace FinlayLib
 			}
 			return ret;
 		}
-		/*
-		virtual bool DeleteNode(const T& value)
-		{
-			bool ret = false;
-			AVLTreeNode<T>* node= DeleteNode(root(), value);
-			if (node)
-			{
-				ret = true;
-				this->free(node);
-			}
-			return ret;
-		}
-		*/
+		
 	};
 }
