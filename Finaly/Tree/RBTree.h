@@ -93,19 +93,124 @@ namespace FinlayLib {
 		void RBTree_Delete_FixUp(RBTreeNode<T>* node) {
 			RBTreeNode<T>* parent = NULL;
 			RBTreeNode<T>* s_node = NULL;
+			RBTreeNode<T>* s_l = NULL;
+			RBTreeNode<T>* s_r = NULL;
+			//进入循环的一定是叶子节点为黑色的这种情况
 			while (node !=this->m_root&& node->color==BLACK)
 			{
-				parent = dynamic_cast<BTreeNode<T>*>(node->parent);
+				parent = dynamic_cast<RBTreeNode<T>*>(node->parent);
 				
 				//当前节点为父节点的左子树，兄弟节点在右子树
 				if (node == parent->left)
 				{
-					s_node = dynamic_cast<BTreeNode<T>*>(parent->right);
+					s_node = dynamic_cast<RBTreeNode<T>*>(parent->right);
+					//第一种情况：兄节点为红色
+					if (s_node->color == RED)
+					{
+						s_node->color = BLACK;
+						parent->color = RED;
+						RotateL(parent);
+						parent = dynamic_cast<RBTreeNode<T>*>(node->parent);
+						s_node = dynamic_cast<RBTreeNode<T>*>(parent->right);
+					}
+					s_l = dynamic_cast<RBTreeNode<T>*>(s_node->left);
+					s_r = dynamic_cast<RBTreeNode<T>*>(s_node->right);
+					/*
+					// 第二种情况：兄黑，子全黑
+					// 处理方式，兄涂红色，node指向父结点，下次while循环，如果父为红色，结束循环，
+					// 循环跳出后会设置父结点为黑。如果父为黑色，此时就需要
+					// 递归向上处理，以parent为n，再找其兄弟结点，通过局部平衡达到全局平衡。
+					// s->color == BLACK判断并没有多大意义，因为第一种情况被处理后兄结点为黑，其他情况兄结点一定为黑，所以说判断可加可不加
+
+					*/
+
+					if (s_node->color == BLACK &&(((s_l == NULL) || s_l->color == BLACK) && (s_r==NULL|| s_r->color == BLACK)))
+					{
+						s_node->color = RED;
+						node = dynamic_cast<RBTreeNode<T>*>(node->parent);
+						parent = dynamic_cast<RBTreeNode<T>*>(node->parent);
+					}
+					/*
+					*
+					第三种情况:兄黑，兄在右子树，兄的左孩子红色
+					*/
+					if ((s_r == NULL || s_r->color == BLACK) &&(s_l!=NULL&& s_l->color == RED))
+					{
+						s_node->color = RED;
+						s_l->color = BLACK;
+						RotateR(s_node);
+						parent = dynamic_cast<RBTreeNode<T>*>(node->parent);
+						s_node = dynamic_cast<RBTreeNode<T>*>(parent->right);
+						s_l = dynamic_cast<RBTreeNode<T>*>(s_node->left);
+						s_r = dynamic_cast<RBTreeNode<T>*>(s_node->right);
+						//一环接一环，处理后s变为情况4
+						//转为情况4处理
+					}
+					//第四种情况:兄黑，兄弟节点在右子树，右孩子为红色
+					if (s_r!=NULL && s_r->color==RED)
+					{
+						s_node->color = parent->color;
+						parent->color = BLACK;
+						s_r->color = BLACK;
+						RotateL(parent);
+						node = dynamic_cast<RBTreeNode<T>*>(this->m_root);
+					}
 				}
 				//当前节点为父节点的右子树，兄弟节点在左子树
 				else if(node == parent->right)
 				{
-					s_node = dynamic_cast<BTreeNode<T>*>(parent->left);
+					s_node = dynamic_cast<RBTreeNode<T>*>(parent->left);
+					//第一种情况：兄节点为红色
+					if (s_node->color == RED)
+					{
+						s_node->color = BLACK;
+						parent->color = RED;
+						RotateR(parent);
+						parent = dynamic_cast<RBTreeNode<T>*>(node->parent);
+						s_node = dynamic_cast<RBTreeNode<T>*>(parent->left);
+					}
+					s_l = dynamic_cast<RBTreeNode<T>*>(s_node->left);
+					s_r = dynamic_cast<RBTreeNode<T>*>(s_node->right);
+					/*
+					// 第二种情况：兄黑，子全黑
+					// 处理方式，兄涂红色，node指向父结点，下次while循环，如果父为红色，结束循环，
+					// 循环跳出后会设置父结点为黑。如果父为黑色，此时就需要
+					// 递归向上处理，以parent为n，再找其兄弟结点，通过局部平衡达到全局平衡。
+					// s->color == BLACK判断并没有多大意义，因为第一种情况被处理后兄结点为黑，其他情况兄结点一定为黑，所以说判断可加可不加
+
+					*/
+
+					if (s_node->color == BLACK && ((s_l == NULL) || s_l->color == BLACK) && (s_r == NULL || s_r->color == BLACK))
+					{
+						s_node->color = RED;
+						node = dynamic_cast<RBTreeNode<T>*>(node->parent);
+						parent = dynamic_cast<RBTreeNode<T>*>(node->parent);
+					}
+					/*
+					*
+					第三种情况:兄黑，兄在左子树，兄的右孩子红色
+					*/
+					if (((s_l == NULL) || s_l->color == BLACK) &&(s_r!=NULL &&s_r->color == RED))
+					{
+						s_node->color = RED;
+						s_r->color = BLACK;
+						RotateL(s_node);
+						parent = dynamic_cast<RBTreeNode<T>*>(node->parent);
+						s_node = dynamic_cast<RBTreeNode<T>*>(parent->right);
+						s_l = dynamic_cast<RBTreeNode<T>*>(s_node->left);
+						s_r = dynamic_cast<RBTreeNode<T>*>(s_node->right);
+						//一环接一环，处理后s变为情况4
+						//转为情况4处理
+					}
+					//第四种情况:兄黑，兄弟节点在右子树，右孩子为红色
+					if (s_l != NULL && s_l->color == RED)
+					{
+						s_node->color = parent->color;
+						parent->color = BLACK;
+						s_l->color = BLACK;
+						RotateR(parent);
+						node = dynamic_cast<RBTreeNode<T>*>(this->m_root);
+					}
 				}
 			}
 			node->color = BLACK;
@@ -126,24 +231,25 @@ namespace FinlayLib {
 				ret = root;
 				if (root->right)
 				{
-					BTreeNode<T>* target = MinElement(root->right);
+					BTreeNode<T>* target = BSTree<T>::MinElement(root->right);
 					DeleteNode(root->right, target->value);
-					replace(root, target);
+					BSTree<T>::replace(root, target);
 
 				}
 				//对于红黑树，如果有是单只，只有左子节点或者只有右子节点，那么子节点一定是红色，此时只需要将字节的代替当前节点，并将字节的设为黑色即可
 				else if (root->left) {
 					
 					RBTreeNode<T>* child = dynamic_cast<RBTreeNode<T>*>(root->left);
-					replace(root, root->left);
+					BSTree<T>::replace(root, root->left);
 					root->left = NULL;
 					child->color = BLACK;
 				}
 				//对于无如何字节的的，若为红色节点可以直接删除，若为黑色则需要调整，此处全部调用RBTree_Delete_FixUp函数进行调整
 				else
 				{
-					replace(root, NULL);
 					RBTree_Delete_FixUp(dynamic_cast<RBTreeNode<T>*>(root));
+					BSTree<T>::replace(root, NULL);
+					
 				}
 			}
 			else

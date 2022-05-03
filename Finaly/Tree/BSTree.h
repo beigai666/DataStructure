@@ -93,7 +93,15 @@ namespace FinlayLib
 			if (target) {
 				target->parent = node_parent;
 				target->left = node->left;
+				if (target->left)
+				{
+					target->left->parent = target;
+				}
 				target->right = node->right;
+				if (target->right)
+				{
+					target->right->parent = target;
+				}
 			}
 			node->left = NULL;
 			node->right = NULL;
