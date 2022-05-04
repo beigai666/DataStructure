@@ -29,24 +29,9 @@ void print(RBTree<int>& bst)
 	}
 	cout << endl;
 }
+void fun8_2();
 void fnFinaly()
 {
-//	AVLTree<int> avl;
-	RBTree<int> bst;
-	bst.insert(20);
-	bst.insert(30);
-	bst.insert(31);
-	bst.insert(32);
-	bst.insert(33);
-	bst.insert(34);
-	bst.insert(35);
-	bst.insert(36);
-	bst.insert(37);
-	print(bst);
-	bst.remove(32);
-	bst.remove(35);
-	print(bst);
-	bst.remove(33);
-	print(bst);
+	fun8_2();
 }
 

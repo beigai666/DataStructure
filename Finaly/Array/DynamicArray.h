@@ -1,6 +1,8 @@
 #pragma once
 #include <Array/Array.h>
 #include <Exception/NoEnoughMemoryException.h>
+
+
 namespace FinlayLib {
 	template<typename T>
 	class DynamicArray : public Array<T>

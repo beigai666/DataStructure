@@ -14,6 +14,7 @@ namespace FinlayLib {
 		 }
 		 ~LinkStack()
 		 {
+			 clear();
 		 }
 		 void push(const T& e)
 		 {

@@ -233,6 +233,7 @@
     <ClCompile Include="work\4.cpp" />
     <ClCompile Include="work\6.cpp" />
     <ClCompile Include="work\8.cpp" />
+    <ClCompile Include="work\9.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

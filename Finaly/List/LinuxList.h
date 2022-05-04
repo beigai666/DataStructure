@@ -1,6 +1,12 @@
 #ifndef _LINUX_LIST_H
 #define _LINUX_LIST_H
+#ifndef NULL
+#ifdef __cplusplus
 #define NULL 0
+#else
+#define NULL ((void *)0)
+#endif
+#endif
 
 #ifndef offsetof
 #define offsetof(TYPE, MEMBER) ((size_t) &((TYPE *)0)->MEMBER)
