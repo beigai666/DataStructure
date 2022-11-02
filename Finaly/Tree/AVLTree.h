@@ -1,8 +1,8 @@
 #include "BSTree.h"
 #include "AVLTreeNode.h"
-#define LH	 -1
-#define EH	 0
-#define RH   1
+#define LH	 (-1)
+#define EH	 (0)
+#define RH   (1)
 namespace FinlayLib
 {
 	template <typename T>

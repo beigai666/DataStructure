@@ -1,0 +1,25 @@
+/home/znf/work/DataStructure/build/Finaly/2.o /home/znf/work/DataStructure/build/Finaly/2.dep : /home/znf/work/DataStructure/Finaly/work/2.cpp \
+ /home/znf/work/DataStructure/Finaly/Graph/MatrixGraph.h \
+ /home/znf/work/DataStructure/Finaly/Exception/Exception.h \
+ /home/znf/work/DataStructure/Finaly/Object/Object.h \
+ /home/znf/work/DataStructure/Finaly/Exception/InvalidOperationException.h \
+ /home/znf/work/DataStructure/Finaly/Exception/InvalidParameterException.h \
+ /home/znf/work/DataStructure/Finaly/Exception/NoEnoughMemoryException.h \
+ /home/znf/work/DataStructure/Finaly/Exception/ArithmeticException.h \
+ /home/znf/work/DataStructure/Finaly/Exception/IndexOutOfBoundsException.h \
+ /home/znf/work/DataStructure/Finaly/Array/DynamicArray.h \
+ /home/znf/work/DataStructure/Finaly/Array/Array.h \
+ /home/znf/work/DataStructure/Finaly/Graph/Graph.h \
+ /home/znf/work/DataStructure/Finaly/pointer/SharePointer.h \
+ /home/znf/work/DataStructure/Finaly/pointer/Pointer.h \
+ /home/znf/work/DataStructure/Finaly/Queue/LinkQueue.h \
+ /home/znf/work/DataStructure/Finaly/Queue/Queue.h \
+ /home/znf/work/DataStructure/Finaly/List/LinuxList.h \
+ /home/znf/work/DataStructure/Finaly/Stack/LinkStack.h \
+ /home/znf/work/DataStructure/Finaly/Stack/Stack.h \
+ /home/znf/work/DataStructure/Finaly/List/LinkList.h \
+ /home/znf/work/DataStructure/Finaly/List/List.h \
+ /home/znf/work/DataStructure/Finaly/Sort/Sort.h \
+ /home/znf/work/DataStructure/Finaly/Heap/DynamicHeap.h \
+ /home/znf/work/DataStructure/Finaly/Heap/Heap.h \
+ /home/znf/work/DataStructure/Finaly/Graph/ListGraph.h

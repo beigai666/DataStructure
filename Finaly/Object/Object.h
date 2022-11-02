@@ -1,11 +1,5 @@
 #pragma once
-#ifndef NULL
-	#ifdef __cplusplus
-		#define NULL 0
-	#else
-		#define NULL ((void *)0)
-	#endif
-#endif
+#include <stdlib.h>
 namespace FinlayLib {
 
 	class Object

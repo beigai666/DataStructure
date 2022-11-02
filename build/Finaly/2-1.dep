@@ -1,0 +1,13 @@
+/home/znf/work/DataStructure/build/Finaly/2-1.o /home/znf/work/DataStructure/build/Finaly/2-1.dep : /home/znf/work/DataStructure/Finaly/work/2-1.cpp \
+ /home/znf/work/DataStructure/Finaly/Stack/LinkStack.h \
+ /home/znf/work/DataStructure/Finaly/Stack/Stack.h \
+ /home/znf/work/DataStructure/Finaly/Object/Object.h \
+ /home/znf/work/DataStructure/Finaly/List/LinkList.h \
+ /home/znf/work/DataStructure/Finaly/List/List.h \
+ /home/znf/work/DataStructure/Finaly/Exception/NoEnoughMemoryException.h \
+ /home/znf/work/DataStructure/Finaly/Exception/Exception.h \
+ /home/znf/work/DataStructure/Finaly/Exception/InvalidOperationException.h \
+ /home/znf/work/DataStructure/Finaly/Exception/InvalidParameterException.h \
+ /home/znf/work/DataStructure/Finaly/Exception/ArithmeticException.h \
+ /home/znf/work/DataStructure/Finaly/Exception/IndexOutOfBoundsException.h \
+ /home/znf/work/DataStructure/Finaly/Sort/ListSort.h

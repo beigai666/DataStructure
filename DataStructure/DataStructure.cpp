@@ -2,10 +2,9 @@
 //
 #include <typeinfo>
 #include <iostream>
-#include <Windows.h>
+
 #include "../Finaly/framework.h"
-//#pragma comment(lib,"F:\\DataStructure\\x64\\Debug\\Finaly.lib")
-#pragma comment(lib,"Finaly.lib")
+
 int main()
 {
 	try

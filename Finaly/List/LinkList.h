@@ -1,5 +1,4 @@
 #pragma once
-#define NULL 0
 
 #include "List.h"
 #include <Exception/NoEnoughMemoryException.h>

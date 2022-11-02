@@ -9,7 +9,8 @@ namespace FinlayLib {
 		}
 		if (file != NULL) {
 			char sl[16] = { 0 };
-			itoa(line, sl, 10);
+			//itoa(line, sl, 10);
+			snprintf(sl,16,"%d",line);
 			m_location =(char*) malloc(strlen(file)+strlen(sl)+2);
 			if (m_location != NULL) {
 				m_location = strcpy(m_location, file);

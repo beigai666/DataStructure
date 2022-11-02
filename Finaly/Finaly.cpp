@@ -1,6 +1,5 @@
 ﻿// Finaly.cpp : 定义静态库的函数。
 //
-#include <Windows.h>
 #include <iostream>
 
 #include <Tree/AVLTree.h>

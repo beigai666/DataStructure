@@ -1,5 +1,4 @@
 #include <List/DynamicList.h>
-#include <Windows.h>
 #include <iostream>
 #include <Array/DynamicArray.h>
 #include <List/LinkList.h>

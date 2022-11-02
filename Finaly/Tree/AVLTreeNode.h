@@ -3,9 +3,6 @@
 
 namespace FinlayLib
 {
-#define LH +1
-#define EH  0
-#define RH -1
 	template <typename T>
 	class AVLTreeNode : public BTreeNode<T>
 	{

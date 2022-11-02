@@ -1,7 +1,7 @@
 #pragma once
 #include"LinkList.h"
+#include <string.h>
 namespace FinlayLib {
-	//¾²Ì¬Á´Ê½Á´±í
 	template<typename T, int N>
 	class StaticLinkList : public LinkList<T> 
 	{
