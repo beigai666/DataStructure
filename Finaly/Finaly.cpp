@@ -29,9 +29,9 @@ void print(RBTree<int>& bst)
 	}
 	cout << endl;
 }
-void fun8_2();
+int start();
 void fnFinaly()
 {
-	fun8_2();
+	start();
 }
 

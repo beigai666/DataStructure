@@ -215,7 +215,7 @@ namespace FinlayLib {
 			return true;
 		}
 
-		BOOL IsHeap(int i) {
+		bool IsHeap(int i) {
 			bool ret = true;
 			if (!isNull(i))
 			{
